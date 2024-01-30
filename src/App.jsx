@@ -21,18 +21,22 @@ function App() {
           alignItems: 'center',
           justifyContent: 'space-between',
           height: '100%',
+          gap:2
         }}>
           <div style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems:'center'
           }} >
-            <img src={logoImage} alt="" />
+            <img src={logoImage} style={{
+              height:'2rem'
+            }} alt="" />
             <Typography sx={{
               textAlign: 'left',
               fontWeight: 700,
               mt: 5,
-              fontFamily: 'Poppins'
+              fontFamily: 'Poppins',
+              fontSize:'2.5rem'
             }} variant='h4'>A service for our eco-friendly packages
             </Typography>
             <Typography sx={{
@@ -79,6 +83,7 @@ function App() {
 
       <Grid item xs={12} md={8} sx={{
         background: `linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(${bgImage}) lightgray 50% / cover no-repeat`,
+        height:"100vh"
         }}>
           <PulseBeams/>
         </Grid>
