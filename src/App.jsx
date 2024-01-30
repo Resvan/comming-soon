@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
-import logoImage from './assets/Logo.png';
+import logoImage from './assets/logonew.jpeg';
 import socialIcons from './assets/Social-Icons.png';
 import bgImage from './assets/Img.png';
 import PulseBeams from './components/PulseBeam';
