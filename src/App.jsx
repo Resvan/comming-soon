@@ -36,13 +36,10 @@ function App() {
               fontWeight: 700,
               mt: 2,
               fontFamily: 'Poppins',
-            }} variant='h6'>Celebrate Health, Embrace Ayurveda: Discover Harmony with Our 100 % natural Ayurvedic products
+            }} variant='h3'>
+              Celebrate Health, Embrace Ayurveda
             </Typography>
-            <Typography sx={{
-              textAlign: 'left',
-              fontFamily: 'Poppins',
-            }} variant='p'>Certified of Good Manufacturing Practice in accordance with WHO standards
-            </Typography>
+            
             <Typography sx={{
               textAlign: 'left',
               mt: 6,
@@ -70,6 +67,11 @@ function App() {
             }}>
               Subscribe
             </Button>
+            <Typography sx={{
+              textAlign: 'left',
+              fontFamily: 'Poppins',
+            }} variant='p'>Certified of Good Manufacturing Practice in accordance with WHO standards
+            </Typography>
           </div>
           <div style={{
             display: 'flex',
