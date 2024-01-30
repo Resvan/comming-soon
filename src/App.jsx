@@ -14,7 +14,7 @@ function App() {
       <Grid container sx={{
         height:'100vh'
       }}>
-        <Grid item xs={12} md={4} padding={5} >
+        <Grid item xs={12} md={4} padding={3} >
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -34,9 +34,9 @@ function App() {
             <Typography sx={{
               textAlign: 'left',
               fontWeight: 700,
-              mt: 2,
+              mt: 3,
               fontFamily: 'Poppins',
-            }} variant='h3'>
+            }} variant='h4'>
               Celebrate Health, Embrace Ayurveda
             </Typography>
             
@@ -74,8 +74,8 @@ function App() {
             }} variant='p'>Certified of Good Manufacturing Practice in accordance with WHO standards
             </Typography>
           </div>
-          <div style={{
-            display: 'flex',
+          <Box sx={{
+            display: { xs: 'none', md: 'flex' },
             alignItems: 'center',
             flexDirection:'column'
           }}>
@@ -87,7 +87,7 @@ function App() {
             }} variant='p' component='p'>
               © Copyrights Gnana Prakasham | All Rights Reserved
             </Typography>
-          </div>
+          </Box>
 
         </Box>
         </Grid>
@@ -97,7 +97,26 @@ function App() {
         height:"100vh"
         }}>
           <PulseBeams/>
-        </Grid>
+      </Grid>
+      <Grid item xs={12} sx={{
+        display: { xs: 'flex', md: 'none' },
+        justifyContent: 'center',
+        padding:2
+      }}>
+        <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column'
+      }}>
+          <img src={socialIcons} alt="" />
+          <Typography sx={{
+            textAlign: 'center',
+            fontFamily: 'Poppins',
+            fontSize: '0.7rem'
+          }} variant='p' component='p'>
+            © Copyrights Gnana Prakasham | All Rights Reserved
+          </Typography>
+        </div></Grid>
       </Grid>
   )
 }
