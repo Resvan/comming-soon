@@ -70,6 +70,7 @@ function App() {
             <Typography sx={{
               textAlign: 'left',
               fontFamily: 'Poppins',
+        mt:1,
             }} variant='p'>Certified of Good Manufacturing Practice in accordance with WHO standards
             </Typography>
           </div>
