@@ -82,7 +82,7 @@ function App() {
               fontFamily: 'Poppins',
               fontSize: '0.7rem'
             }} variant='p' component='p'>
-              © Copyrights Greelogix | All Rights Reserved
+              © Copyrights Gnana Prakasham | All Rights Reserved
             </Typography>
           </div>
 
