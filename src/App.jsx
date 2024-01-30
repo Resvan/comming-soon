@@ -29,15 +29,19 @@ function App() {
             alignItems:'center'
           }} >
             <img src={logoImage} style={{
-              height:'2rem'
+              height:'5rem'
             }} alt="" />
             <Typography sx={{
               textAlign: 'left',
               fontWeight: 700,
-              mt: 5,
+              mt: 2,
               fontFamily: 'Poppins',
-              fontSize:'2.5rem'
-            }} variant='h4'>A service for our eco-friendly packages
+            }} variant='h6'>Celebrate Health, Embrace Ayurveda: Discover Harmony with Our 100 % natural Ayurvedic products
+            </Typography>
+            <Typography sx={{
+              textAlign: 'left',
+              fontFamily: 'Poppins',
+            }} variant='p'>Certified of Good Manufacturing Practice in accordance with WHO standards
             </Typography>
             <Typography sx={{
               textAlign: 'left',
@@ -67,8 +71,12 @@ function App() {
               Subscribe
             </Button>
           </div>
-          <div>
-            <img src={socialIcons} alt="" />
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection:'column'
+          }}>
+            <img src={socialIcons}  alt="" />
             <Typography sx={{
               textAlign: 'center',
               fontFamily: 'Poppins',
