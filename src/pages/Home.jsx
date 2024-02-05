@@ -5,13 +5,14 @@ import phoneImage from '../assets/phoneImage.svg';
 import arrowSvg from '../assets/arrow.svg';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
-import bannerImage from '../assets/bannerImage.png';
+import Banner from '../components/Banner';
+import { ArrowBack, ArrowForward } from '@mui/icons-material';
 
 const StyledText = styled(Typography)(({ theme, variant }) => ({
     cursor: 'pointer',
     fontFamily: 'Inter',
     fontWeight: 600,
-    color:'white'
+    color: 'white'
 }));
 
 const Home = () => {
@@ -33,12 +34,12 @@ const Home = () => {
                 <Grid container sx={{
                     py: 2
                 }}>
-                    <Grid item md={7}>
+                    <Grid item xs={12} md={7}>
                         <img src={logoImage} style={{
                             height: '5rem',
                         }} alt="" />
                     </Grid>
-                    <Grid item md={5} sx={{
+                    <Grid item xs={12} md={5} sx={{
                         alignSelf: 'center'
                     }}>
                         <Box sx={{
@@ -78,7 +79,8 @@ const Home = () => {
             </Container>
             <Box sx={{
                 backgroundColor: "#007337",
-                py:1
+                py: 1,
+                display: { xs: 'none', md:'block'}
             }}>
                 <Container sx={{ display: 'flex', flexGrow: 1, alignItems: 'center', gap: '2rem', }}>
                     {menuItems.map((item, index) => (
@@ -88,10 +90,18 @@ const Home = () => {
                     ))}
                 </Container>
             </Box>
-            <Box>
-                <img src={bannerImage} alt="" style={{ width: '100%', height: 'auto' }} />
+            <Box sx={{
+                position: 'relative',
+                height: '100vh'
+            }}>
+                <div className="swiper-button image-swiper-button-next">
+                    <ArrowForward />
+                </div>
+                <div className="swiper-button image-swiper-button-prev">
+                    <ArrowBack />
+                </div>
+                <Banner />
             </Box>
-
         </>
     )
 }
