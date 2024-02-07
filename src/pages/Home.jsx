@@ -15,6 +15,7 @@ import aboutImageTwo from '../assets/about-i2.png';
 import joinUs from '../assets/joinus.svg';
 import tickIcon from '../assets/tickIcon.svg';
 import topArrowPrimary from '../assets/topArrowPrimary.svg';
+import ProductSlider from '../components/ProductSlider';
 
 
 const StyledText = styled(Typography)(({ theme, variant }) => ({
@@ -355,6 +356,40 @@ const Home = () => {
                         </Box>
                     </Grid>
                 </Grid>
+            </Container>
+            <Container sx={{
+                mt: 5,
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection:'column'
+            }}>
+                <Box sx={{
+                    display: 'flex',
+                    gap: 2,
+                }}>
+                    <div style={{
+                        height: '2px',
+                        width: '5rem',
+                        backgroundColor: '#EEA676',
+                        alignSelf: 'center'
+                    }}></div>
+                    <Typography component='p' variant='p' sx={{
+                        color: '#EEA676',
+                        fontFamily: 'Outfit',
+                        position: 'relative',
+                        fontWeight: 500
+                    }}>
+                        Our Products
+                    </Typography>
+                </Box>
+                <Typography
+                    component='h3' variant='h3'
+                    sx={{
+                    fontFamily: 'Outfit',
+                        fontWeight: 600,
+                    mb:5,
+                    }}>Best for Your Health</Typography>
+                    <ProductSlider  />
             </Container>
 
         </>
