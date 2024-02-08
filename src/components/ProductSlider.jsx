@@ -2,51 +2,43 @@ import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import productOne from '../assets/product-1.png'
-
-// Import Swiper styles
+import productOne from '../assets/product-1.png';
 import 'swiper/css';
-import 'swiper/css/pagination';
-
-
-
-// import required modules
+import 'swiper/css/navigation';
+import ProductCard from './ProductCard';
+import { Navigation } from 'swiper/modules';
 
 const ProductSlider = () => {
     const theme = useTheme();
     const isMd = useMediaQuery(theme.breakpoints.up('md'));
     const isLg = useMediaQuery(theme.breakpoints.up('lg'));
 
-    const slidesPerView = isLg ? 3 : (isMd ? 2 : 1); // Adjust the number of slides per view based on screen size
+    const slidesPerView = isLg ? 3 : (isMd ? 2 : 1);
 
     return (
         <Swiper
             slidesPerView={slidesPerView}
             spaceBetween={30}
-            pagination={{
-                clickable: true,
+            navigation={{
+                nextEl: ".image-swiper-button-next",
+                prevEl: ".image-swiper-button-prev",
+                disabledClass: "swiper-button-disabled"
             }}
-            modules={[Pagination]}
+            modules={[Navigation]}
             className="mySwiper"
+            
         >
             <SwiperSlide>
-                <img src={productOne} alt="" />
+                <ProductCard proData={productOne} />
             </SwiperSlide>
             <SwiperSlide>
-                <img src={productOne} alt="" />
+                <ProductCard proData={productOne} />
             </SwiperSlide>
             <SwiperSlide>
-                <img src={productOne} alt="" />
+                <ProductCard proData={productOne} />
             </SwiperSlide>
             <SwiperSlide>
-                <img src={productOne} alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={productOne} alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={productOne} alt="" />
+                <ProductCard proData={productOne} />
             </SwiperSlide>
         </Swiper>
     );

@@ -16,6 +16,9 @@ import joinUs from '../assets/joinus.svg';
 import tickIcon from '../assets/tickIcon.svg';
 import topArrowPrimary from '../assets/topArrowPrimary.svg';
 import ProductSlider from '../components/ProductSlider';
+import ArrowForwardIcon from '../assets/forwardArrow.svg';
+import ArrowBackwardIcon from '../assets/backArrow.svg';
+import WhyUs from '../components/WhyUs/WhyUs';
 
 
 const StyledText = styled(Typography)(({ theme, variant }) => ({
@@ -245,13 +248,13 @@ const Home = () => {
                     <Grid item xs={12} md={6}>
                         <Box sx={{
                             display: 'flex',
-                            gap:2,
+                            gap: 2,
                         }}>
                             <div style={{
                                 height: '2px',
                                 width: '5rem',
                                 backgroundColor: '#EEA676',
-                                alignSelf:'center'
+                                alignSelf: 'center'
                             }}></div>
                             <Typography component='p' variant='p' sx={{
                                 color: '#EEA676',
@@ -266,7 +269,7 @@ const Home = () => {
                             textAlign: 'left',
                             fontFamily: 'Outfit',
                             fontWeight: 600,
-                            mt:1
+                            mt: 1
                         }}>
                             Your Journey to Better <br /> Health Starts Here
                         </Typography>
@@ -274,17 +277,17 @@ const Home = () => {
                             fontFamily: 'Outfit',
                             width: '75%',
                             mt: 2,
-                            mb:4
+                            mb: 4
                         }}>We are a team of highly skilled and experienced medical professionals, including doctors, nurses, specialists, and support staff, with a commitment to excellence.
                         </Typography>
                         <Box sx={{
                             display: 'flex',
                             gap: 2,
-                            mb:1,
+                            mb: 1,
                         }}>
                             <img src={tickIcon} alt="" />
                             <Typography sx={{
-                                fontFamily:'Outfit'
+                                fontFamily: 'Outfit'
                             }}>Comprehensive Care</Typography>
                         </Box>
                         <Box sx={{
@@ -330,27 +333,27 @@ const Home = () => {
                             <Typography component={'p'} variant='p' sx={{
                                 fontFamily: 'Outfit',
                                 letterSpacing: '0.38px',
-                                color:'#036C5F',
+                                color: '#036C5F',
                                 fontWeight: 500
                             }}>Learn More</Typography>
                             <img src={topArrowPrimary} alt="" />
                         </Box>
                     </Grid>
-                    <Grid item  xs={12} md={6} sx={{
-                        position:'relative'
+                    <Grid item xs={12} md={6} sx={{
+                        position: 'relative'
                     }}>
                         <img src={aboutImageOne} alt="" />
                         <img src={aboutImageTwo} style={{
-                            marginTop:'1rem',
+                            marginTop: '1rem',
                         }} alt="" />
                         <Box sx={{
                             backgroundColor: "white",
                             position: 'absolute',
                             top: '50%',
-                            right:'0%',
-                            transform: 'translateY(-55%)', 
+                            right: '0%',
+                            transform: 'translateY(-55%)',
                             borderRadius: '50%',
-                            padding:'5px'
+                            padding: '5px'
                         }}>
                             <img src={joinUs} alt="" />
                         </Box>
@@ -361,7 +364,8 @@ const Home = () => {
                 mt: 5,
                 display: 'flex',
                 alignItems: 'center',
-                flexDirection:'column'
+                flexDirection: 'column',
+                position:'relative'
             }}>
                 <Box sx={{
                     display: 'flex',
@@ -385,12 +389,39 @@ const Home = () => {
                 <Typography
                     component='h3' variant='h3'
                     sx={{
-                    fontFamily: 'Outfit',
+                        fontFamily: 'Outfit',
                         fontWeight: 600,
-                    mb:5,
-                    }}>Best for Your Health</Typography>
-                    <ProductSlider  />
+                        mb: 5,
+                    }}
+                >
+                    Best for Your Health
+                </Typography>
+                <div className="swiper-button image-swiper-button-next">
+                    <img src={ArrowForwardIcon} alt="" />
+                </div>
+                <div className="swiper-button image-swiper-button-prev">
+                    <img src={ArrowBackwardIcon} alt="" />
+                </div>
+                    <ProductSlider />
+                <Box sx={{
+                    border: '1.5px solid #036C5F',
+                    maxWidth: 'fit-content',
+                    px: 4,
+                    py: 2,
+                    borderRadius: '50px',
+                    display: 'flex',
+                    gap: 1
+                }}>
+                    <Typography component={'p'} variant='p' sx={{
+                        fontFamily: 'Outfit',
+                        letterSpacing: '0.38px',
+                        color: '#036C5F',
+                        fontWeight: 500
+                    }}>Learn More</Typography>
+                    <img src={topArrowPrimary} alt="" />
+                </Box>
             </Container>
+            <WhyUs/>
 
         </>
     )
