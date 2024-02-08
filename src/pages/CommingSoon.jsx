@@ -29,18 +29,19 @@ const CommingSoon = () => {
                           height: '5rem'
                       }} alt="" />
                       <Typography sx={{
-                          textAlign: 'left',
+                          textAlign: 'center',
                           fontWeight: 700,
                           mt: 3,
-                          fontFamily: 'Inter',
+                          fontFamily: 'Poppins',
                       }} variant='h4'>
                           Celebrate Health, Embrace Ayurveda
                       </Typography>
 
                       <Typography sx={{
                           textAlign: 'left',
-                          mt: 6,
-                          fontWeight: 700
+                          mt: 7,
+                          fontWeight: 700,
+                          fontFamily:'Poppins'
                       }}>
                           Get notified when we get live!
                       </Typography>
@@ -60,14 +61,14 @@ const CommingSoon = () => {
                               backgroundColor: '#27AE60'
                           },
                           fontWeight: 500,
-                          fontFamily: 'Inter'
+                          fontFamily: 'Poppins'
                       }}>
                           Subscribe
                       </Button>
                       <Typography sx={{
-                          textAlign: 'left',
-                          fontFamily: 'Inter',
-                          mt: 1,
+                          textAlign: 'center',
+                          fontFamily: 'Poppins',
+                          mt: 5,
                       }} variant='p'>Certified of Good Manufacturing Practice in accordance with WHO standards
                       </Typography>
                   </div>
@@ -79,7 +80,7 @@ const CommingSoon = () => {
                       <img src={socialIcons} alt="" />
                       <Typography sx={{
                           textAlign: 'center',
-                          fontFamily: 'Inter',
+                          fontFamily: 'Poppins',
                           fontSize: '0.7rem'
                       }} variant='p' component='p'>
                           © Copyrights Gnana Prakasham | All Rights Reserved
@@ -108,7 +109,7 @@ const CommingSoon = () => {
                   <img src={socialIcons} alt="" />
                   <Typography sx={{
                       textAlign: 'center',
-                      fontFamily: 'Inter',
+                      fontFamily: 'Outfit',
                       fontSize: '0.7rem'
                   }} variant='p' component='p'>
                       © Copyrights Gnana Prakasham | All Rights Reserved
