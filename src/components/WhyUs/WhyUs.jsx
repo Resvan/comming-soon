@@ -16,7 +16,7 @@ const WhyUs = () => {
           sx={{
               backgroundColor: '#FBF7F3',
               py: '5rem',
-              mt:5
+              my:5
           }}
       >
           <Container>

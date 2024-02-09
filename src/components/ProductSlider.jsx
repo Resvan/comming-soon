@@ -19,6 +19,8 @@ const ProductSlider = () => {
         <Swiper
             slidesPerView={slidesPerView}
             spaceBetween={30}
+            // centeredSlides={true}
+            // loop={true}
             navigation={{
                 nextEl: ".image-swiper-button-next",
                 prevEl: ".image-swiper-button-prev",

@@ -19,6 +19,9 @@ import ProductSlider from '../components/ProductSlider';
 import ArrowForwardIcon from '../assets/forwardArrow.svg';
 import ArrowBackwardIcon from '../assets/backArrow.svg';
 import WhyUs from '../components/WhyUs/WhyUs';
+import Facilities from '../components/Facilities/Facilities';
+import OurtExpertDoctors from '../components/OurExpertDoctors/OurtExpertDoctors';
+import Testmonial from '../components/Testimonial/Testmonial';
 
 
 const StyledText = styled(Typography)(({ theme, variant }) => ({
@@ -365,41 +368,52 @@ const Home = () => {
                 </Grid>
             </Container>
             <Container sx={{
-                mt: 5,
+                mt: '7rem',
                 display: 'flex',
                 alignItems: 'center',
                 flexDirection: 'column',
                 position:'relative'
             }}>
-                <Box sx={{
-                    display: 'flex',
-                    gap: 2,
+                <Typography component='p' variant='p' sx={{
+                    position: 'relative',
+                    fontWeight: 500,
+                    color:'#EEA676',
+                    '::before': {
+                        content: '""',
+                        position: 'absolute',
+                        width: '9.5rem',
+                        height: '3px', 
+                        background: '#EEA676',
+                        top: '50%', 
+                        transform: 'translateY(-50%)', 
+                        right: '110%', 
+                    },
                 }}>
-                    <div style={{
-                        height: '2px',
-                        width: '5rem',
-                        backgroundColor: '#EEA676',
-                        alignSelf: 'center'
-                    }}></div>
-                    <Typography component='p' variant='p' sx={{
-                        color: '#EEA676',
-                        fontFamily: 'Outfit',
-                        position: 'relative',
-                        fontWeight: 500
-                    }}>
-                        Our Products
-                    </Typography>
-                </Box>
+                    Our Products
+                </Typography>
                 <Typography
                     component='h3' variant='h3'
                     sx={{
                         fontFamily: 'Outfit',
                         fontWeight: 600,
-                        mb: 5,
+                        mb: 2,
                     }}
                 >
                     Best for Your Health
                 </Typography>
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    mb:4
+                }}>
+                    <Typography sx={{
+                        fontFamily: 'Outfit',
+                        width: '60%',
+                        textAlign: 'center',
+                    }}>
+                        Sed et a in nunc morbi odio quam rhoncus. Libero vulputate arcu risus accumsan eget euismod. Euismod amet tellus libero accumsan eget faucibus dui. Diam orci.
+                    </Typography>
+                </Box>
                 <div className="swiper-button image-swiper-button-next">
                     <img src={ArrowForwardIcon} alt="" />
                 </div>
@@ -421,12 +435,14 @@ const Home = () => {
                         letterSpacing: '0.38px',
                         color: '#036C5F',
                         fontWeight: 500
-                    }}>Learn More</Typography>
+                    }}>Shop Now</Typography>
                     <img src={topArrowPrimary} alt="" />
                 </Box>
             </Container>
             <WhyUs/>
-
+            <Facilities />
+            <OurtExpertDoctors />
+            <Testmonial/>
         </>
     )
 }
