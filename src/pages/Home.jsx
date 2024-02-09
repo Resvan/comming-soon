@@ -245,7 +245,9 @@ const Home = () => {
                     mt: 8,
                     justifyContent: 'center'
                 }}>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={6} sx={{
+                        display:'grid'
+                    }}>
                         <Box sx={{
                             display: 'flex',
                             gap: 2,
@@ -323,18 +325,20 @@ const Home = () => {
                         <Box sx={{
                             border: '1.5px solid #036C5F',
                             maxWidth: 'fit-content',
-                            mt: 5,
                             px: 4,
-                            py: 2,
+                            py: 1,
+                            mt:4,
                             borderRadius: '50px',
                             display: 'flex',
-                            gap: 1
+                            gap: 1,
+                            alignItems:'center'
                         }}>
                             <Typography component={'p'} variant='p' sx={{
                                 fontFamily: 'Outfit',
                                 letterSpacing: '0.38px',
                                 color: '#036C5F',
-                                fontWeight: 500
+                                fontWeight: 500,
+                                textWrap:'nowrap'
                             }}>Learn More</Typography>
                             <img src={topArrowPrimary} alt="" />
                         </Box>
