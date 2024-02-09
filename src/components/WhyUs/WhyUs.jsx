@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
 import React from 'react';
-import whyUsImage from '../../assets/whyUsImage.png';
+import whyUsImage from '../../assets/whyusImage.png';
 import drawonWhyUs from '../../assets/drawonWhyus.svg';
 import OrgaincImg from '../../assets/organicSvg.svg';
 import PureAurveda from '../../assets/pureAurvedaSvg.svg';
