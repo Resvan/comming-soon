@@ -1,10 +1,11 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Avatar, Box, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import Qoute1 from '../../assets/qoutes1.svg';
 import Qoute2 from '../../assets/qoutes2.svg';
 import ArrowForwardIcon from '../../assets/forwardArrow.svg';
 import ArrowBackwardIcon from '../../assets/backArrow.svg';
 import ReviewCard from './ReviewCard';
+import CeoImage from '../../assets/ceo.png';
 
 const Testmonial = () => {
   return (
@@ -16,7 +17,9 @@ const Testmonial = () => {
           }}
       >
           <Container>
-              <Grid container>
+              <Grid container sx={{
+                  justifyContent:'center'
+              }}>
                   <Grid item xs={12} md={6} >
                       <Box sx={{
                           display: 'flex',
@@ -31,7 +34,7 @@ const Testmonial = () => {
                               '::before': {
                                   content: '""',
                                   position: 'absolute',
-                                  width: '8.2rem',
+                                  width: '10.5rem',
                                   height: '3px',
                                   background: '#EEA676',
                                   top: '50%',
@@ -71,6 +74,33 @@ const Testmonial = () => {
                                   </span>
                               </Typography>
                           </Box>
+                          
+                      </Box>
+                      <Box sx={{
+                          display: 'flex',
+                          mt: 4,
+                          gap:2,
+                      }}>
+                          <Avatar style={{
+                              height: '3rem',
+                              width:'3rem'
+                          }} src={CeoImage} />
+                          <Box sx={{
+                              display: 'flex',
+                              flexDirection:'column'
+                          }}>
+                              <Typography sx={{
+                                  fontFamily: 'Outfit',
+                                  color: '#042622',
+                                  fontWeight: '600',
+                                  textWrap: 'nowrap'
+                              }}>Olivia Parker</Typography>
+                              <Typography sx={{
+                                  fontFamily: 'Outfit',
+                                  color: '#3C4253',
+                                  fontSize: '0.9rem'
+                              }}>CEO & Founder</Typography>
+                          </Box>
                       </Box>
                   </Grid>
                   <Grid item xs={12} md={6} sx={{
@@ -78,7 +108,8 @@ const Testmonial = () => {
                       alignItems: { xs: 'start', md: 'end' },
                       gap: 2,
                       position: 'relative',
-                      flexDirection:{xs:'column', md: 'row'}
+                      flexDirection: { xs: 'column', md: 'row' },
+                      mb:7
                   }}>
                       <Box >
                           <div className="review-button image-review-button-next">
@@ -89,7 +120,7 @@ const Testmonial = () => {
                           </div>
                       </Box>
                       <ReviewCard styles={{
-                          zIndex:2
+                          zIndex: 2,
                       }}/>
                       <ReviewCard styles={{
                           position: 'absolute',
