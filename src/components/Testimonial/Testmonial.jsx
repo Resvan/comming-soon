@@ -78,7 +78,7 @@ const Testmonial = () => {
                       alignItems: { xs: 'start', md: 'end' },
                       gap: 2,
                       position: 'relative',
-                      flexDirection:{xs:'column'}
+                      flexDirection:{xs:'column', md: 'row'}
                   }}>
                       <Box >
                           <div className="review-button image-review-button-next">
