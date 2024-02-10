@@ -244,7 +244,7 @@ const Home = () => {
                 </Box>
             </Box>
             <Container>
-                <Grid container sx={{
+                <Grid container spacing={2} sx={{
                     mt: 8,
                     justifyContent: 'center'
                 }}>
@@ -290,7 +290,9 @@ const Home = () => {
                             gap: 2,
                             mb: 1,
                         }}>
-                            <img src={tickIcon} alt="" />
+                            <img src={tickIcon} style={{
+                                height:'2rem'
+                            }} alt="" />
                             <Typography sx={{
                                 fontFamily: 'Outfit'
                             }}>Comprehensive Care</Typography>
@@ -300,7 +302,9 @@ const Home = () => {
                             gap: 2,
                             mb: 1,
                         }}>
-                            <img src={tickIcon} alt="" />
+                            <img src={tickIcon} alt="" style={{
+                                height: '2rem'
+                            }} />
                             <Typography sx={{
                                 fontFamily: 'Outfit'
                             }}>Access and Convenience</Typography>
@@ -310,7 +314,9 @@ const Home = () => {
                             gap: 2,
                             mb: 1,
                         }}>
-                            <img src={tickIcon} alt="" />
+                            <img src={tickIcon} alt="" style={{
+                                height: '2rem'
+                            }} />
                             <Typography sx={{
                                 fontFamily: 'Outfit'
                             }}>Expert Healthcare Providers</Typography>
@@ -320,7 +326,9 @@ const Home = () => {
                             gap: 2,
                             mb: 1,
                         }}>
-                            <img src={tickIcon} alt="" />
+                            <img src={tickIcon} alt="" style={{
+                                height: '2rem'
+                            }} />
                             <Typography sx={{
                                 fontFamily: 'Outfit'
                             }}>Patient-Centered Approach</Typography>
@@ -349,20 +357,25 @@ const Home = () => {
                     <Grid item xs={12} md={6} sx={{
                         position: 'relative'
                     }}>
-                        <img src={aboutImageOne} alt="" />
+                        <img src={aboutImageOne} style={{
+                            width:'100%'
+                        }} alt="" />
                         <img src={aboutImageTwo} style={{
-                            marginTop: '1rem',
+                            // marginTop: '1rem',
+                            width:'100%'
                         }} alt="" />
                         <Box sx={{
                             backgroundColor: "white",
                             position: 'absolute',
                             top: '50%',
-                            right: '0%',
+                            right: { xs: '-1%', md: '-10%' },
                             transform: 'translateY(-55%)',
                             borderRadius: '50%',
                             padding: '5px'
                         }}>
-                            <img src={joinUs} alt="" />
+                            <img src={joinUs} style={{
+                                height:'6rem'
+                            }} alt="" />
                         </Box>
                     </Grid>
                 </Grid>

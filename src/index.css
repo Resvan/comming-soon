@@ -62,3 +62,34 @@ body{
     pointer-events: none;
 }
 
+
+.review-button {
+    display: flex;
+    z-index: 10;
+    cursor: pointer;
+    background-color: #DEEEEC;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.image-review-button-prev {
+    margin-top: 1rem;
+}
+
+.image-review-button-next {
+    right: 5px;
+}
+
+.image-button-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+

@@ -6,16 +6,19 @@ const ReviewCount = () => {
   return (
       <Box sx={{
           position: 'absolute',
-          top: '0%',
-          right:'7%',
+          top: { xs:'-5%', md:'0%'},
+          right: { xs: '0%', md: '7%' },
           backgroundColor: 'white',
-          padding:'1.4rem'
+          padding: { xs:'0.9rem', md: '1.4rem' }
       }}>
           <AvatarGroup
               renderSurplus={(surplus) => <span>+</span>}
               total={4251}
+              sx={{
+                  height:'3rem',
+              }}
           >
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              <Avatar  alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
               <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
               <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
           </AvatarGroup>
