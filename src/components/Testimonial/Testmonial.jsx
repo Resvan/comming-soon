@@ -6,6 +6,7 @@ import ArrowForwardIcon from '../../assets/forwardArrow.svg';
 import ArrowBackwardIcon from '../../assets/backArrow.svg';
 import ReviewCard from './ReviewCard';
 import CeoImage from '../../assets/ceo.png';
+import SuffleCard from './SuffleCard';
 
 const Testmonial = () => {
   return (
@@ -17,9 +18,7 @@ const Testmonial = () => {
           }}
       >
           <Container>
-              <Grid container sx={{
-                  justifyContent:'center'
-              }}>
+              <Grid container >
                   <Grid item xs={12} md={6} >
                       <Box sx={{
                           display: 'flex',
@@ -104,14 +103,13 @@ const Testmonial = () => {
                       </Box>
                   </Grid>
                   <Grid item xs={12} md={6} sx={{
-                      display: 'flex',
-                      alignItems: { xs: 'start', md: 'end' },
+                      display: {xs:'none', md:'flex'},
                       gap: 2,
                       position: 'relative',
-                      flexDirection: { xs: 'column', md: 'row' },
-                      mb:7
                   }}>
-                      <Box >
+                      <Box sx={{
+                          alignSelf:'end'
+                      }}>
                           <div className="review-button image-review-button-next">
                               <img src={ArrowForwardIcon} alt="" />
                           </div>
@@ -119,18 +117,37 @@ const Testmonial = () => {
                               <img src={ArrowBackwardIcon} alt="" />
                           </div>
                       </Box>
-                      <ReviewCard styles={{
-                          zIndex: 2,
-                      }}/>
-                      <ReviewCard styles={{
-                          position: 'absolute',
-                          top: '10%',
-                          right:'0',
-                          opacity: 0.5,
-                          zIndex:1
-                      }} />
+                      <SuffleCard/>
                   </Grid>
-            </Grid>
+                  <Grid item xs={12} sx={{
+                      display: { xs: 'block', md: 'none' },
+                      position: 'relative',
+                      minHeight:'18rem',
+                     mt:15
+                  }}>
+                      
+                    <SuffleCard/>
+                      <Box sx={{
+                          display: 'flex',
+                          justifyContent: 'end',
+                          gap: 2,
+                          mt:2
+                      }}>
+                          <div className="review-button">
+                              <img src={ArrowBackwardIcon} alt="" />
+                          </div>
+                          <div className="review-button image-review-button-next">
+                              <img src={ArrowForwardIcon} alt="" />
+                          </div>
+                      </Box>
+                  </Grid>
+                  {/* <Grid item md={6} sx={{
+                      position:'relative'
+                  }}>
+                      <SuffleCard/>
+                  </Grid> */}
+              </Grid>
+              
           </Container>
       </Box>
   )

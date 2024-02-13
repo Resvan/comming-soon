@@ -1,7 +1,8 @@
-import { Box, Button, Container, Grid, IconButton, Toolbar, Typography } from '@mui/material'
+import { Box, Button, Container, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material'
 import React, { useRef, useState } from 'react';
 import logo from '../assets/gp-1.svg';
 import styled from '@emotion/styled';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import cartIcon from '../assets/cart-icon.svg';
 import topArrowRight from '../assets/arrow-top-right.svg';
@@ -22,6 +23,7 @@ import WhyUs from '../components/WhyUs/WhyUs';
 import Facilities from '../components/Facilities/Facilities';
 import OurtExpertDoctors from '../components/OurExpertDoctors/OurtExpertDoctors';
 import Testmonial from '../components/Testimonial/Testmonial';
+import SuffleCard from '../components/Testimonial/SuffleCard';
 
 
 const StyledText = styled(Typography)(({ theme, variant }) => ({
@@ -35,9 +37,18 @@ const Home = () => {
 
     const [playing, setPlaying] = useState(false);
     const playerRef = useRef(null);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    const handleDrawerOpen = () => {
+        setIsDrawerOpen(true);
+    };
 
     const handlePlayPause = () => {
         setPlaying(!playing);
+    };
+
+    const handleDrawerClose = () => {
+        setIsDrawerOpen(false);
     };
 
     const navigate = useNavigate();
@@ -120,6 +131,43 @@ const Home = () => {
                             Book Appoinment
                         </Button>
                     </Toolbar>
+                    <Toolbar sx={{ padding: '5px', display: { xs: 'flex', md: 'none' } }}>
+                        <Grid container alignItems="center" justifyContent="center">
+                            <Box sx={{
+                                background: 'white',
+                                padding:1
+                            }}>
+                                <img style={{ height: '1.5rem' }} src={logo} alt="Logo" />
+                            </Box>
+                        </Grid>
+                        <IconButton
+                            sx={{ display: { xs: 'block', md: 'none' } }}
+                            color="inherit"
+                            onClick={handleDrawerOpen}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                    </Toolbar>
+                    <Drawer
+                        anchor="right"
+                        open={isDrawerOpen}
+                        onClose={handleDrawerClose}
+                    >
+                        <List>
+                            {menuItems.map((item, index) => (
+                                <ListItem>
+                                <ListItemButton key={index} onClick={() => { handleDrawerClose(); navigate(item.path); }}>
+                                    <ListItemText primary={item.label} />
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
+                            <ListItem>
+                                <Button onClick={() => navigate('/login')} variant='contained' sx={{ backgroundColor: "#0C4ECE", color: 'white', borderRadius: '48px', fontWeight: 500, fontFamily: 'Poppins', padding: '10px 25px' }}>
+                                    Login
+                                </Button>
+                            </ListItem>
+                        </List>
+                    </Drawer>
                 </Container>
                 <Container sx={{
                     mt: 7,
@@ -455,7 +503,7 @@ const Home = () => {
             <WhyUs/>
             <Facilities />
             <OurtExpertDoctors />
-            <Testmonial/>
+            <Testmonial />
         </>
     )
 }

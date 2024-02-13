@@ -93,3 +93,61 @@ body{
     pointer-events: none;
 }
 
+.wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.wrapper .card {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    animation: animate 15s linear infinite;
+    animation-delay: calc(3s * var(--delay));
+}
+
+.outer:hover .card {
+    animation-play-state: paused;
+}
+
+.wrapper .card:last-child {
+    animation-delay: calc(-3s * var(--delay));
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%) scale(0.5);
+    }
+
+    5%,
+    20% {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.7);
+        z-index: 1;
+    }
+    25%,
+    40% {
+        opacity: 0.7;
+        pointer-events: auto;
+        transform: translateY(0%) translateX(8%) scale(0.9); 
+        z-index: 1;
+    }
+    45%,
+    60% {
+        opacity: 1;
+        transform: translateY(50%) translateX(0%) scale(1);
+        z-index: 2;
+    }
+
+    65%,
+    100% {
+        opacity: 0;
+        transform: translateY(100%) translateX(0%) scale(1);
+        z-index: 2;
+    }
+}
+

@@ -7,7 +7,6 @@ const ReviewCard = ({styles}) => {
       <Box sx={{
           backgroundColor: 'white',
           padding: { xs: '0.9rem', md: '1.4rem' },
-          width: { xs: '80%', md: '55%' },
           ...styles,
       }}>
           <Box sx={{
