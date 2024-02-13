@@ -4,9 +4,9 @@ import Qoute1 from '../../assets/qoutes1.svg';
 import Qoute2 from '../../assets/qoutes2.svg';
 import ArrowForwardIcon from '../../assets/forwardArrow.svg';
 import ArrowBackwardIcon from '../../assets/backArrow.svg';
-import ReviewCard from './ReviewCard';
 import CeoImage from '../../assets/ceo.png';
 import SuffleCard from './SuffleCard';
+import Carousel from './ReviewAnimated';
 
 const Testmonial = () => {
   return (
@@ -141,11 +141,24 @@ const Testmonial = () => {
                           </div>
                       </Box>
                   </Grid>
-                  {/* <Grid item md={6} sx={{
-                      position:'relative'
-                  }}>
-                      <SuffleCard/>
-                  </Grid> */}
+                  <Grid item md={6} style={{
+                     
+                  }} >
+                      <Carousel/>
+                      <Box sx={{
+                          display: 'flex',
+                          justifyContent: 'end',
+                          gap: 2,
+                          mt: 5
+                      }}>
+                          <div className="review-button">
+                              <img src={ArrowBackwardIcon} alt="" />
+                          </div>
+                          <div className="review-button image-review-button-next">
+                              <img src={ArrowForwardIcon} alt="" />
+                          </div>
+                      </Box>
+                  </Grid>
               </Grid>
               
           </Container>
