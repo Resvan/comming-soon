@@ -120,7 +120,10 @@ const Footer = () => {
                           display: 'flex',
                           justifyContent:{xs:'start',md:'center'}
                       }}>
-                          <Box >
+                          <Box sx={{
+                          width:'100%'
+                          }}>
+
                               <Typography component='h6' variant='h6' sx={{
                                   fontFamily: 'Outfit',
                                   fontSize: '1.2rem',
@@ -130,6 +133,10 @@ const Footer = () => {
                               }}>
                                   Opening Hours
                               </Typography>
+                             <Box sx={{
+            display:'flex',
+            justifyContent:'center'
+                             }}>
                               <Typography sx={{
                                   fontFamily: 'Outfit',
                                   textAlign: 'left',
@@ -138,10 +145,20 @@ const Footer = () => {
                                   mt: 4,
                                   fontWeight: 500,
                               }}>
-                                  Mon - Tues <span style={{
-                                      marginLeft:'4rem'
-                                  }}>08:00 AM - 05:00PM</span>
+                                  Mon - Tues 
                               </Typography>
+                                <Typography sx={{
+                                  fontFamily: 'Outfit',
+                                  textAlign: 'left',
+                                  color: '#3C4253',
+                                  fontSize: '1rem',
+                                  mt: 4,
+                                  fontWeight: 500,
+                              }}>
+                                 08:00 AM - 05:00PM
+                              </Typography>
+                          </Box>
+                              
                               <Typography sx={{
                                   fontFamily: 'Outfit',
                                   textAlign: 'left',
