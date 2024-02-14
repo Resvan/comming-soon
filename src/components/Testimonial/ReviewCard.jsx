@@ -6,7 +6,8 @@ const ReviewCard = ({styles}) => {
   return (
       <Box sx={{
           backgroundColor: 'white',
-          padding: { xs: '0.9rem', md: '1.4rem' },
+          padding: { xs: '0.9rem', md: '1.5rem' },
+          width:{xs: '90%',md:'55%'},
           ...styles,
       }}>
           <Box sx={{
@@ -40,7 +41,7 @@ const ReviewCard = ({styles}) => {
                   alignSelf: 'center'
               }}>
                   <img src={reviewStars} style={{
-                      height: '1.5rem',
+                      height: '1.2rem',
                   }} alt="" />
               </Box>
             

@@ -24,6 +24,8 @@ import Facilities from '../components/Facilities/Facilities';
 import OurtExpertDoctors from '../components/OurExpertDoctors/OurtExpertDoctors';
 import Testmonial from '../components/Testimonial/Testmonial';
 import SuffleCard from '../components/Testimonial/SuffleCard';
+import Blog from '../components/Blog/Blog';
+import Footer from '../components/Footer/Footer';
 
 
 const StyledText = styled(Typography)(({ theme, variant }) => ({
@@ -504,6 +506,8 @@ const Home = () => {
             <Facilities />
             <OurtExpertDoctors />
             <Testmonial />
+            <Blog />
+            <Footer/>
         </>
     )
 }

@@ -107,6 +107,8 @@ body{
     position: absolute;
     animation: animate 15s linear infinite;
     animation-delay: calc(3s * var(--delay));
+    display: flex;
+    justify-content: center;
 }
 
 .outer:hover .card {

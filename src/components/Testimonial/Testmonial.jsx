@@ -6,15 +6,17 @@ import ArrowForwardIcon from '../../assets/forwardArrow.svg';
 import ArrowBackwardIcon from '../../assets/backArrow.svg';
 import CeoImage from '../../assets/ceo.png';
 import SuffleCard from './SuffleCard';
-import Carousel from './ReviewAnimated';
+import NewSlider from './NewSldert';
+import TestmonialShape from '../../assets/testmonial-shape.svg'
 
 const Testmonial = () => {
   return (
       <Box
           sx={{
               backgroundColor: '#FBF7F3',
-              py: '3rem',
-              my: 5
+              py: '6rem',
+              mt: 5,
+              position:'relative'
           }}
       >
           <Container>
@@ -107,7 +109,7 @@ const Testmonial = () => {
                       gap: 2,
                       position: 'relative',
                   }}>
-                      <Box sx={{
+                      {/* <Box sx={{
                           alignSelf:'end'
                       }}>
                           <div className="review-button image-review-button-next">
@@ -116,7 +118,7 @@ const Testmonial = () => {
                           <div className="review-button image-review-button-prev">
                               <img src={ArrowBackwardIcon} alt="" />
                           </div>
-                      </Box>
+                      </Box> */}
                       <SuffleCard/>
                   </Grid>
                   <Grid item xs={12} sx={{
@@ -127,7 +129,7 @@ const Testmonial = () => {
                   }}>
                       
                     <SuffleCard/>
-                      <Box sx={{
+                      {/* <Box sx={{
                           display: 'flex',
                           justifyContent: 'end',
                           gap: 2,
@@ -139,12 +141,14 @@ const Testmonial = () => {
                           <div className="review-button image-review-button-next">
                               <img src={ArrowForwardIcon} alt="" />
                           </div>
-                      </Box>
+                      </Box> */}
                   </Grid>
-                  <Grid item md={6} style={{
-                     
+                  {/* <Grid item md={6} style={{
+                      position: 'relative'
                   }} >
-                      <Carousel/>
+                      {Array.from({ length: 5 }, (_, index) => (
+                      <NewSlider key={index} active={index} />
+                                  ))}
                       <Box sx={{
                           display: 'flex',
                           justifyContent: 'end',
@@ -158,10 +162,19 @@ const Testmonial = () => {
                               <img src={ArrowForwardIcon} alt="" />
                           </div>
                       </Box>
-                  </Grid>
+                  </Grid> */}
               </Grid>
               
           </Container>
+          <Box sx={{
+              position:'absolute',
+              right: '0',
+              bottom: '2%',
+          }}>
+              <img style={{
+                  height:'8rem'
+              }} src={TestmonialShape} alt="" />
+          </Box>
       </Box>
   )
 }
