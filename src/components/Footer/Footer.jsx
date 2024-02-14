@@ -41,7 +41,7 @@ const Footer = () => {
                       </Grid>
                       <Grid item xs={12} sm={6} md={2} sx={{
                           display: 'flex',
-                          justifyContent:'center'
+                          justifyContent:{xs:'start',md:'center'}
                       }}>
                           <Box >
                               <Typography component='h6' variant='h6' sx={{
@@ -118,7 +118,7 @@ const Footer = () => {
                       </Grid>
                       <Grid item xs={12} sm={6} md={4} sx={{
                           display: 'flex',
-                          justifyContent: 'center'
+                          justifyContent:{xs:'start',md:'center'}
                       }}>
                           <Box >
                               <Typography component='h6' variant='h6' sx={{
