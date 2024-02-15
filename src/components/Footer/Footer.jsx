@@ -4,6 +4,8 @@ import logoImage from '../../assets/gp-1.svg';
 import Facebook from '../../assets/facebook.svg';
 import Linkedin from '../../assets/linkedin.svg';
 import Instagram from '../../assets/instagram.svg';
+import Sethoscope from '../../assets/stethoscope-1.svg';
+import Medicine from '../../assets/medicine-1.svg';
 
 
 const Footer = () => {
@@ -16,6 +18,19 @@ const Footer = () => {
                     position: 'relative'
                 }}
             >
+                <Box sx={{
+                    position: 'absolute',
+                    top:'30%'
+                }}>
+                    <img src={Sethoscope} alt="" />
+                </Box>
+                <Box sx={{
+                    position: 'absolute',
+                    right: 0,
+                    bottom:'20%'
+                }}>
+                    <img src={Medicine} alt="" />
+                </Box>
                 <Container>
                     <Grid container>
                         <Grid item xs={12} sm={6} md={3}>
@@ -41,7 +56,8 @@ const Footer = () => {
                         </Grid>
                         <Grid item xs={12} sm={6} md={2} sx={{
                             display: 'flex',
-                            justifyContent: { xs: 'start', md: 'center' }
+                            justifyContent: { xs: 'start', md: 'center' },
+                            mt:{xs: 5, md: 0}
                         }}>
                             <Box >
                                 <Typography component='h6' variant='h6' sx={{
@@ -58,7 +74,7 @@ const Footer = () => {
                                     textAlign: 'left',
                                     color: '#3C4253',
                                     fontSize: '1rem',
-                                    mt: 4,
+                                    mt: {xs:2, md:4},
                                     fontWeight: 500,
                                 }}>
                                     &gt; About
@@ -118,7 +134,8 @@ const Footer = () => {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4} sx={{
                             display: 'flex',
-                            justifyContent: { xs: 'start', md: 'center' }
+                            justifyContent: { xs: 'start', md: 'center' },
+                            mt: { xs: 5, md: 0 }
                         }}>
                             <Box sx={{
                                 width: '100%'
@@ -142,7 +159,7 @@ const Footer = () => {
                                         textAlign: 'left',
                                         color: '#3C4253',
                                         fontSize: '1rem',
-                                        mt: 4,
+                                        mt: {xs:2, md:4},
                                         fontWeight: 500,
                                     }}>
                                         Mon - Tues
@@ -263,7 +280,8 @@ const Footer = () => {
                         </Grid>
                         <Grid item xs={12} sm={6} md={3} sx={{
                             display: 'flex',
-                            justifyContent: { xs: 'start', md: 'center' }
+                            justifyContent: { xs: 'start', md: 'center' },
+                            mt: { xs: 5, md: 0 }
                         }}>
                             <Box >
                                 <Typography component='h6' variant='h6' sx={{
@@ -280,7 +298,7 @@ const Footer = () => {
                                     textAlign: 'left',
                                     color: '#3C4253',
                                     fontSize: '1rem',
-                                    mt: 4,
+                                    mt: {xs:2, md:4},
                                     fontWeight: 500,
                                 }}>
                                     82 New street . NY 1013

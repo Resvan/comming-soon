@@ -164,8 +164,17 @@ const Home = () => {
                                 </ListItem>
                             ))}
                             <ListItem>
-                                <Button onClick={() => navigate('/login')} variant='contained' sx={{ backgroundColor: "#0C4ECE", color: 'white', borderRadius: '48px', fontWeight: 500, fontFamily: 'Poppins', padding: '10px 25px' }}>
-                                    Login
+                                <Button variant='contained'
+                                    sx={{
+                                        background: '#EEA676',
+                                        padding: "0.6rem 1.5rem",
+                                        borderRadius: '50px',
+                                        fontFamily: "Outfit",
+                                        '&:hover': {
+                                            backgroundColor: '#EEA676',
+                                        },
+                                    }}>
+                                    Book Appoinment
                                 </Button>
                             </ListItem>
                         </List>

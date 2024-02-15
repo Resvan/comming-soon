@@ -90,7 +90,7 @@ const Blog = () => {
                               display: 'flex',
                               gap: 1,
                               alignItems: 'center',
-                              height: '60%',
+                              height: { xs: '50%', md: '70%' },
                               px:2
                           }}>
                               <Typography component={'p'} variant='p' sx={{
@@ -108,12 +108,13 @@ const Blog = () => {
                               <Box sx={{
                                   height: '25%',
                                   display: 'flex',
+                                  flexDirection:{xs:'column', md:'row'},
                                   gap: 2,
                                   mb:2
                               }}>
                                       <img style={{
-                                          height: '9rem',
-                                          width:'25rem'
+                                          height: '8rem',
+                                          width:'100%'
                                       }} src={blogOne} alt="" />
                                   <Box sx={{
                                       display: 'flex',
@@ -126,7 +127,7 @@ const Blog = () => {
                                           fontFamily: 'Outfit',
                                           fontWeight: 600,
                                           width: '90%',
-                                          fontSize: '1.5rem'
+                                          fontSize: '1.3rem'
                                       }}>
                                           Demystifying Common Myths About Vaccines.
                                       </Typography>
@@ -134,7 +135,7 @@ const Blog = () => {
                                           fontFamily: 'Outfit',
                                           width: '90%',
                                           mt: 1,
-                                          fontSize: '1.1rem',
+                                          fontSize: '1rem',
                                           color:'#3C4253'
                                       }}>Vaccines have long been an important tool in protecting public health, yet various lies and misinformation
                                       </Typography>
