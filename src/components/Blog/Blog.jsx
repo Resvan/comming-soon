@@ -114,7 +114,7 @@ const Blog = () => {
                               }}>
                                       <img style={{
                                           height: '8rem',
-                                          width:'100%'
+                                      width: '80%',
                                       }} src={blogOne} alt="" />
                                   <Box sx={{
                                       display: 'flex',

@@ -184,7 +184,7 @@ const Footer = () => {
                                         textAlign: 'left',
                                         color: '#3C4253',
                                         fontSize: '1rem',
-                                        mt: 4,
+                                        mt: 2,
                                         fontWeight: 500,
                                     }}>
                                         Wed - Thu
@@ -194,7 +194,7 @@ const Footer = () => {
                                         textAlign: 'left',
                                         color: '#3C4253',
                                         fontSize: '1rem',
-                                        mt: 4,
+                                        mt: 2,
                                         fontWeight: 500,
                                     }}>
                                         09:00 AM - 06:00PM
@@ -209,7 +209,7 @@ const Footer = () => {
                                         textAlign: 'left',
                                         color: '#3C4253',
                                         fontSize: '1rem',
-                                        mt: 4,
+                                        mt: 2,
                                         fontWeight: 500,
                                     }}>
                                         Fri - Sat
@@ -219,7 +219,7 @@ const Footer = () => {
                                         textAlign: 'left',
                                         color: '#3C4253',
                                         fontSize: '1rem',
-                                        mt: 4,
+                                        mt: 2,
                                         fontWeight: 500,
                                     }}>
                                         08:00 AM - 05:00PM
@@ -235,7 +235,7 @@ const Footer = () => {
                                         textAlign: 'left',
                                         color: '#3C4253',
                                         fontSize: '1rem',
-                                        mt: 4,
+                                        mt: 2,
                                         fontWeight: 500,
                                     }}>
                                         Sunday
@@ -245,7 +245,7 @@ const Footer = () => {
                                         textAlign: 'left',
                                         color: '#3C4253',
                                         fontSize: '1rem',
-                                        mt: 4,
+                                        mt: 2,
                                         fontWeight: 500,
                                     }}>
                                         Emergency Only
@@ -260,7 +260,7 @@ const Footer = () => {
                                         textAlign: 'left',
                                         color: '#3C4253',
                                         fontSize: '1rem',
-                                        mt: 4,
+                                        mt: 2,
                                         fontWeight: 500,
                                     }}>
                                        Personal
@@ -270,7 +270,7 @@ const Footer = () => {
                                         textAlign: 'left',
                                         color: '#3C4253',
                                         fontSize: '1rem',
-                                        mt: 4,
+                                        mt: 2,
                                         fontWeight: 500,
                                     }}>
                                        Mon - 05:00PM
