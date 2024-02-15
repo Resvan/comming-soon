@@ -80,30 +80,31 @@ const WhyUs = () => {
                               textAlign: 'left',
                               fontFamily: 'Outfit',
                               fontWeight: 600,
-                              mt: 1
+                              mt: 1,
+                              fontSize: { xs: '2rem', md: '3rem' }
                           }}>
                               Your Journey to Better <br /> Health Starts Here
                           </Typography>
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={12} md={6}>
                           <Features imageUrl={OrgaincImg}
                               heading={'100% Organic'}
                               description={'Our qualified doctors are board-certified in their'}
                           />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={12} md={6}>
                           <Features imageUrl={ChemicalLess}
                               heading={'Chemical Less'}
                               description={'Our qualified doctors are board-certified in their'}
                           />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={12} md={6}>
                           <Features imageUrl={TestedSvg}
                               heading={'Tested Product'}
                               description={'Our qualified doctors are board-certified in their '}
                           />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={12} md={6}>
                           <Features imageUrl={PureAurveda}
                               heading={'Pure Ayurveda'}
                               description={'Our qualified doctors are board-certified in their'}
@@ -147,25 +148,25 @@ const WhyUs = () => {
                               Your Journey to Better <br /> Health Starts Here
                           </Typography>
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={12} md={6}>
                           <Features imageUrl={OrgaincImg}
                               heading={'100% Organic'}
                               description={'Our qualified doctors are board-certified in their'}
                           />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={12} md={6}>
                           <Features imageUrl={ChemicalLess}
                               heading={'Chemical Less'}
                               description={'Our qualified doctors are board-certified in their'}
                           />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={12} md={6}>
                           <Features imageUrl={TestedSvg}
                               heading={'Tested Product'}
                               description={'Our qualified doctors are board-certified in their '}
                           />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={12} md={6}>
                           <Features imageUrl={PureAurveda}
                               heading={'Pure Ayurveda'}
                               description={'Our qualified doctors are board-certified in their'}
@@ -187,8 +188,9 @@ const WhyUs = () => {
                               width: '70%',
                               minHeight: '90%',
                           } : {
-                              width: '90%',
-                              height: '22rem'
+                              width: '100%',
+                                  height: '22rem',
+                            
                           })
                       }} />
                       <img src={drawonWhyUs} alt="" style={{

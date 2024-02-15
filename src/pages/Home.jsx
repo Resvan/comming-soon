@@ -191,6 +191,7 @@ const Home = () => {
                         fontFamily: "Outfit",
                         fontWeight: 600,
                         textAlign: 'center',
+                        fontSize: { xs: '2rem' ,md:'4.3rem'},
                     }} variant='h2' component='h2' >
                         Quality Healthcare That Comes <br /> From the Heart
                     </Typography>
@@ -329,11 +330,12 @@ const Home = () => {
                                 About Us
                             </Typography>
                         </Box>
-                        <Typography component='h4' variant='h4' sx={{
+                        <Typography component='h3' variant='h3' sx={{
                             textAlign: 'left',
                             fontFamily: 'Outfit',
                             fontWeight: 600,
-                            mt: 1
+                            mt: 1,
+                            fontSize:{xs:'2rem',md:'3rem'}
                         }}>
                             Your Journey to Better <br /> Health Starts Here
                         </Typography>
@@ -469,6 +471,7 @@ const Home = () => {
                         fontFamily: 'Outfit',
                         fontWeight: 600,
                         mb: 2,
+                        fontSize: { xs: '2rem', md: '3rem' }
                     }}
                 >
                     Best for Your Health
@@ -480,8 +483,8 @@ const Home = () => {
                 }}>
                     <Typography sx={{
                         fontFamily: 'Outfit',
-                        width: '60%',
-                        textAlign: 'center',
+                        width: { xs: '100%', md: '60%' },
+                        textAlign: { xs: 'left', md:'center'},
                     }}>
                         Sed et a in nunc morbi odio quam rhoncus. Libero vulputate arcu risus accumsan eget euismod. Euismod amet tellus libero accumsan eget faucibus dui. Diam orci.
                     </Typography>
