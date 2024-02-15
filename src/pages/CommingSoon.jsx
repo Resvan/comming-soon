@@ -15,7 +15,7 @@ const CommingSoon = () => {
 
     const subscribeEmail = async (data) => {
         try {
-            let res = await axios.post('http://localhost:3000/subscribe', data);
+            let res = await axios.post('https://gnana-prakasam.onrender.com/subscribe', data);
             if (res.data.message) {
                 toast.success(res.data.message);
             };
