@@ -11,7 +11,7 @@ const Blog = () => {
         py:'5rem'
       }}>
           <Container>
-              <Grid container spacing={3}>
+              <Grid container spacing={6}>
                   <Grid item xs={12} md={6}>
                       <Box sx={{
                           display: 'flex',
@@ -40,7 +40,7 @@ const Blog = () => {
                           Our Latest Posts
                       </Typography>
                       <Box sx={{
-                          mt:2
+                          mt:5
                       }}>
                           <img style={{
                               width: '100%',
@@ -81,8 +81,7 @@ const Blog = () => {
                       <Box sx={{
                           display: 'flex',
                           justifyContent: 'end',
-                          alignItems: 'center',
-                          height: '12.7%',
+                          height: '16%',
                       }}>
                           <Box sx={{
                               border: '1.5px solid #036C5F',
@@ -90,7 +89,7 @@ const Blog = () => {
                               display: 'flex',
                               gap: 1,
                               alignItems: 'center',
-                              height: { xs: '50%', md: '70%' },
+                              height: '50%',
                               px:2
                           }}>
                               <Typography component={'p'} variant='p' sx={{
@@ -114,29 +113,28 @@ const Blog = () => {
                               }}>
                                       <img style={{
                                           height: '8rem',
-                                      width: '80%',
+                                      width: '60%',
                                       }} src={blogOne} alt="" />
                                   <Box sx={{
                                       display: 'flex',
                                       minHeight: '100%',
                                       flexDirection: 'column',
-                                      justifyContent: 'space-between',
+                                      justifyContent:'space-between'
                                   }}>
                                       <Typography component='h4' variant='h4' sx={{
                                           textAlign: 'left',
                                           fontFamily: 'Outfit',
                                           fontWeight: 600,
                                           width: '90%',
-                                          fontSize: '1.3rem'
+                                          fontSize: '1.3rem',mt:0.2
                                       }}>
                                           Demystifying Common Myths About Vaccines.
                                       </Typography>
                                       <Typography component='p' variant='p' sx={{
                                           fontFamily: 'Outfit',
-                                          width: '90%',
-                                          mt: 1,
-                                          fontSize: '1rem',
-                                          color:'#3C4253'
+                                          width: '80%',
+                                          color: '#3C4253',
+                                          lineHeight:'1.5rem'
                                       }}>Vaccines have long been an important tool in protecting public health, yet various lies and misinformation
                                       </Typography>
                                   </Box>

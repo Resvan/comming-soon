@@ -1,11 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import logoImage from '../assets/gp-1.svg';
 import socialIcons from '../assets/Social-Icons.png';
 import bgImage from '../assets/Img.png';
 import PulseBeams from '../components/PulseBeam';
+import { Controller, useForm } from 'react-hook-form';
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CommingSoon = () => {
+
+
+    const [isSubsicribed, setSubscribed] = useState(false);
+
+    const subscribeEmail = async (data) => {
+        try {
+            let res = await axios.post('http://localhost:3000/subscribe', data);
+            if (res.data.message) {
+                toast.success(res.data.message);
+            };
+            setSubscribed(true);
+        } catch (error) {
+            if (error.response.data.error) {
+                toast.error(error.response.data.error)
+            }
+        }
+    }
+
+
+
+
+
+    const { control, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = (data) => {
+        subscribeEmail(data);
+    };
+
   return (
 
       <Grid container sx={{
@@ -45,26 +76,46 @@ const CommingSoon = () => {
                       }}>
                           Get notified when we get live!
                       </Typography>
-                      <TextField
-                          placeholder='Enter email or phone'
-                          margin="normal"
-                          fullWidth
-                          variant="outlined"
-                          sx={{
-                              borderRadius: '24px',
-                          }}
-                      />
-                      <Button variant='contained' sx={{
-                          backgroundColor: "#27AE60",
-                          width: '100%',
-                          '&:hover': {
-                              backgroundColor: '#27AE60'
-                          },
-                          fontWeight: 500,
-                          fontFamily: 'Poppins'
-                      }}>
-                          Subscribe
-                      </Button>
+                      <form onSubmit={handleSubmit(onSubmit)}>
+                          <Controller
+                              name="email"
+                              control={control}
+                              defaultValue=""
+                              rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                              render={({ field }) => (
+                                  <TextField
+                                      {...field}
+                                      placeholder='Enter your email'
+                                      margin="normal"
+                                      fullWidth
+                                      variant="outlined"
+                                      sx={{
+                                          borderRadius: '24px',
+                                      }}
+                                      error={!!errors.email}
+                                      helperText={errors.email?.message}
+                                  />
+                              )}
+                          />
+                          <Button variant='contained'
+                              type='submit'
+                              disabled={isSubsicribed}
+                              sx={{
+                              backgroundColor: "#27AE60",
+                              width: '100%',
+                              '&:hover': {
+                                  backgroundColor: '#27AE60'
+                              },
+                              fontWeight: 500,
+                                  fontFamily: 'Poppins',
+                                  ":disabled": {
+                                      backgroundColor: "#27AE60",
+                                      color:'white'
+                                  }
+                          }}>
+                              {isSubsicribed ? 'Subscibed' : 'Subscribe'}
+                          </Button>
+                      </form>
                       <Typography sx={{
                           textAlign: 'center',
                           fontFamily: 'Poppins',
@@ -115,6 +166,7 @@ const CommingSoon = () => {
                       © Copyrights Gnana Prakasham | All Rights Reserved
                   </Typography>
               </div></Grid>
+          <Toaster />
       </Grid>
   )
 }
