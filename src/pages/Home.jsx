@@ -26,6 +26,8 @@ import Testmonial from '../components/Testimonial/Testmonial';
 import SuffleCard from '../components/Testimonial/SuffleCard';
 import Blog from '../components/Blog/Blog';
 import Footer from '../components/Footer/Footer';
+import Facebook from '../assets/facebook.svg';
+
 
 
 const StyledText = styled(Typography)(({ theme, variant }) => ({
@@ -434,9 +436,25 @@ const Home = () => {
                             borderRadius: '50%',
                             padding: '5px'
                         }}>
-                            <img src={joinUs} style={{
-                                height:'6rem'
-                            }} alt="" />
+                            <Box sx={{
+                                position: 'relative', 
+                                display: 'inline-block' 
+                            }}>
+                                <img src={joinUs} className='rotated-image' style={{
+                                    height: '6rem',
+                                }} alt="" />
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                                <img src={Facebook} style={{
+                                    position: 'absolute', 
+                                    top: '45%', 
+                                    left: '50%',
+                                    transform: 'translate(-50%, -50%)', 
+                                    zIndex: 1,
+                                    cursor: 'pointer',
+                                    
+                                }} alt="" />
+                                </a>
+                            </Box>
                         </Box>
                     </Grid>
                 </Grid>
