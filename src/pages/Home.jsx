@@ -139,7 +139,7 @@ const Home = () => {
                                 background: 'white',
                                 padding:1
                             }}>
-                                <img style={{ height: '1.5rem' }} src={logo} alt="Logo" />
+                                <img style={{ height: '4rem' }} src={logo} alt="Logo" />
                             </Box>
                         </Grid>
                         <IconButton
