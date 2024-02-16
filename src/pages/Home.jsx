@@ -133,8 +133,8 @@ const Home = () => {
                             Book Appoinment
                         </Button>
                     </Toolbar>
-                    <Toolbar sx={{ padding: '5px', display: { xs: 'flex', md: 'none' } }}>
-                        <Grid container alignItems="center" justifyContent="center">
+                    <Toolbar sx={{ padding: '5px', display: { xs: 'flex', md: 'none' }, alignItems:'start' }}>
+                        <Grid container alignItems="end" justifyContent="center">
                             <Box sx={{
                                 background: 'white',
                                 padding:1
