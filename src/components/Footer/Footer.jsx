@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography } from '@mui/material'
+import { Box, Container, Divider, Grid, Typography } from '@mui/material'
 import React from 'react'
 import logoImage from '../../assets/gp-1.svg';
 import Facebook from '../../assets/facebook.svg';
@@ -14,7 +14,7 @@ const Footer = () => {
             <Box
                 sx={{
                     backgroundColor: '#FBF7F3',
-                    py: '4rem',
+                    pt: '4rem',
                     position: 'relative'
                 }}
             >
@@ -317,6 +317,16 @@ const Footer = () => {
                         </Grid>
                     </Grid>
                 </Container>
+                <Divider sx={{
+                    mt:4,
+                }} />
+                <Typography sx={{
+                    fontFamily: 'Outfit',
+                    textAlign: 'center',
+                    my:2
+                }}>
+                    © 2024 Ganna Prakasam. All rights reserved.
+                </Typography>
             </Box>
         </footer>
     )
