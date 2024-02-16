@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import logoImage from '../assets/gp-1.svg';
 import socialIcons from '../assets/Social-Icons.png';
 import bgImage from '../assets/Img.png';
@@ -11,16 +11,22 @@ import toast, { Toaster } from 'react-hot-toast';
 const CommingSoon = () => {
 
 
-    const [isSubsicribed, setSubscribed] = useState(false);
+    const [isSubscribed, setSubscribed] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const { control, reset, handleSubmit, formState: { errors } } = useForm();
 
     const subscribeEmail = async (data) => {
         try {
+            setIsLoading(true);
             let res = await axios.post('https://gnana-prakasam.onrender.com/subscribe', data);
             if (res.data.message) {
                 toast.success(res.data.message);
             };
+            reset();
+            setIsLoading(false)
             setSubscribed(true);
         } catch (error) {
+            setIsLoading(false);
             if (error.response.data.error) {
                 toast.error(error.response.data.error)
             }
@@ -31,7 +37,6 @@ const CommingSoon = () => {
 
 
 
-    const { control, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
         subscribeEmail(data);
@@ -97,23 +102,28 @@ const CommingSoon = () => {
                                   />
                               )}
                           />
-                          <Button variant='contained'
+                          <Button
+                              variant='contained'
                               type='submit'
-                              disabled={isSubsicribed}
+                              disabled={isLoading || isSubscribed}
                               sx={{
-                              backgroundColor: "#27AE60",
-                              width: '100%',
-                              '&:hover': {
-                                  backgroundColor: '#27AE60'
-                              },
-                              fontWeight: 500,
+                                  backgroundColor: "#27AE60",
+                                  width: '100%',
+                                  '&:hover': {
+                                      backgroundColor: '#27AE60'
+                                  },
+                                  fontWeight: 500,
                                   fontFamily: 'Poppins',
                                   ":disabled": {
                                       backgroundColor: "#27AE60",
-                                      color:'white'
+                                      color: 'white'
                                   }
-                          }}>
-                              {isSubsicribed ? 'Subscibed' : 'Subscribe'}
+                              }}
+                              onClick={handleSubmit}
+                          >
+                              {isLoading ? <CircularProgress size={24} style={{
+                                  color:'white'
+                              }} /> : (isSubscribed ? 'Subscribed' : 'Subscribe')}
                           </Button>
                       </form>
                       <Typography sx={{
