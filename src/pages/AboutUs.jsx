@@ -18,6 +18,30 @@ import AboutShape from '../assets/about-shape.svg'
 
 
 const AboutUs = () => {
+
+    const milestones = [
+        {
+            year: 2015,
+            heading: "Year of Founding",
+            description: "Sed consectetur etiam amet ut tristique tincidunt diam justo gravida. Ut in tellus cursus faucibus egestas vestibulum euismod faucibus pharetra. In pharetra mattis sem nulla nulla bibendum. Nec proin lobortis facilisis congue feugiat turpis in fames semper mattis."
+        },
+        {
+            year: 2017,
+            heading: "Early Milestones",
+            description: "Urna sed quis lectus adipiscing. Tellus blandit tristique vulputate orci. Convallis id turpis pulvinar gravida. Augue neque morbi id dapibus penatibus leo vel. Blandit dictum sem arcu et augue adipiscing."
+        },
+        {
+            year: 2018,
+            heading: "Expanding Our Services",
+            description: "In aliquet eget pellentesque quam. Tempus egestas fames donec nibh. Lectus leo pellentesque aliquam consectetur pellentesque pulvinar. Sit maecenas malesuada magna aliquam morbi iaculis et. Nisi leo arcu ut in scelerisque at vel. Ultrices dui libero sem nulla."
+        },
+        {
+            year: 2024,
+            heading: "Present Day",
+            description: "Nunc velit rhoncus convallis malesuada nec sed. Suspendisse donec lobortis congue diam lectus. Tellus purus aliquam pretium facilisis eu euismod sit sed. Sem duis aliquet nibh turpis at purus lectus. Tellus tempus a pellentesque netus vestibulum. Semper urna."
+        }
+    ];
+
     return (
         <>
             <Box
@@ -229,7 +253,7 @@ const AboutUs = () => {
                         </Grid>
                         <Grid item xs={12} md={6}>
                             {
-                                Array.from({ length: 4 }).map((_, index) => (
+                                milestones.map((_, index) => (
                                     <Box key={index} sx={{
                                         border: '1px solid #E1E9E8',
                                         padding: '3rem 2rem 2rem 2rem',
@@ -242,7 +266,7 @@ const AboutUs = () => {
                                             fontWeight: 600,
                                             color: '#042622'
                                         }}>
-                                            Year of Founding
+                                            {_.heading}
                                         </Typography>
                                         <Typography component='p' variant='p' sx={{
                                             fontFamily: "Outfit",
@@ -250,7 +274,7 @@ const AboutUs = () => {
                                             mt: 2,
                                             lineHeight: '1.7rem'
                                         }}>
-                                            Sed consectetur etiam amet ut tristique tincidunt diam justo gravida. Ut in tellus cursus faucibus egestas vestibulum euismod faucibus pharetra. In pharetra mattis sem nulla nulla bibendum. Nec proin lobortis facilisis congue feugiat turpis in fames semper mattis.
+                                           {_.description}
                                         </Typography>
                                         <Box sx={{
                                             position: 'absolute',
@@ -262,7 +286,7 @@ const AboutUs = () => {
                                                 fontFamily: 'Outfit',
                                                 color: '#036C5F',
                                                 fontWeight: 500
-                                            }}>2015</Typography>
+                                            }}>{_.year}</Typography>
                                         </Box>
                                     </Box>
                                 ))
