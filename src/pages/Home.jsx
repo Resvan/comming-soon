@@ -1,10 +1,5 @@
-import { Box, Button, Container, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material'
+import { Box, Container, Grid, IconButton, Typography } from '@mui/material'
 import React, { useRef, useState } from 'react';
-import logo from '../assets/gp-1.svg';
-import styled from '@emotion/styled';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useNavigate } from 'react-router-dom';
-import cartIcon from '../assets/cart-icon.svg';
 import topArrowRight from '../assets/arrow-top-right.svg';
 import Stethoscope from '../assets/stethoscope.svg';
 import Medicine from '../assets/medicine.svg';
@@ -23,48 +18,25 @@ import WhyUs from '../components/WhyUs/WhyUs';
 import Facilities from '../components/Facilities/Facilities';
 import OurtExpertDoctors from '../components/OurExpertDoctors/OurtExpertDoctors';
 import Testmonial from '../components/Testimonial/Testmonial';
-import SuffleCard from '../components/Testimonial/SuffleCard';
 import Blog from '../components/Blog/Blog';
 import Footer from '../components/Footer/Footer';
 import Facebook from '../assets/facebook.svg';
+import NavBar from '../components/NavBar/NavBar';
 
 
 
-const StyledText = styled(Typography)(({ theme, variant }) => ({
-    cursor: 'pointer',
-    fontFamily: 'Outfit',
-    fontWeight: 600,
-    color: '#036C5F'
-}));
+
 
 const Home = () => {
 
     const [playing, setPlaying] = useState(false);
     const playerRef = useRef(null);
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    const handleDrawerOpen = () => {
-        setIsDrawerOpen(true);
-    };
 
     const handlePlayPause = () => {
         setPlaying(!playing);
     };
 
-    const handleDrawerClose = () => {
-        setIsDrawerOpen(false);
-    };
-
-    const navigate = useNavigate();
-
-    const menuItems = [
-        { label: 'About', path: '/about' },
-        { label: 'Services', path: '/services' },
-        { label: 'Products', path: '/products' },
-        { label: 'Facilities', path: '/facilities' },
-        { label: 'Doctors', path: '/doctors' },
-        { label: 'Contact', path: '/contact' },
-    ];
     return (
         <>
             <Box
@@ -75,113 +47,7 @@ const Home = () => {
                     backgroundColor: 'white',
                     backgroundImage: "linear-gradient(to bottom, #036C5F 80%, rgba(0, 0, 0, 0) 20%)" // Removed spaces before %
                 }}>
-                <Container >
-                    <Box sx={{
-                        display: { xs: 'none', md: 'flex' },
-                        gap: 5,
-
-                    }}>
-                        <Typography variant='p' component='p'
-                            sx={{
-                                fontSize: "1rem"
-                            }}
-                        >(987) 654 - 3210</Typography>
-                        <Typography variant='p' component='p'
-                            sx={{
-                                fontSize: "1rem"
-                            }}
-                        >contact@gnanaprakasam.com</Typography>
-                    </Box>
-                    <Toolbar sx={{
-                        display: { xs: 'none', md: 'flex' },
-                        background: '#fff',
-                        py: 1,
-                        mt: 3,
-                        gap: 2
-                    }}>
-                        <Box sx={{ display: 'flex', flexGrow: 1, alignItems: 'center', gap: '2rem' }}>
-                            <img src={logo} alt="" />
-                            {menuItems.map((item, index) => (
-                                <StyledText key={index} onClick={() => navigate(item.path)}>
-                                    {item.label}
-                                </StyledText>
-                            ))}
-                        </Box>
-                        <Box sx={{
-                            position: 'relative'
-                        }}>
-                            <img src={cartIcon} alt="" />
-                            <Box sx={{
-                                background: '#EEA676',
-                                position: 'absolute',
-                                padding: '0.2rem 0.6rem',
-                                borderRadius: "50%",
-                                right: -6,
-                                bottom: '0',
-                            }}>
-                                0
-                            </Box>
-                        </Box>
-                        <Button variant='contained'
-                            sx={{
-                                background: '#EEA676',
-                                padding: "0.6rem 1.5rem",
-                                borderRadius: '50px',
-                                fontFamily: "Outfit",
-                                '&:hover': {
-                                    backgroundColor: '#EEA676',
-                                },
-                            }}>
-                            Book Appoinment
-                        </Button>
-                    </Toolbar>
-                    <Toolbar sx={{ padding: '5px', display: { xs: 'flex', md: 'none' }, alignItems:'start' }}>
-                        <Grid container alignItems="end" justifyContent="center">
-                            <Box sx={{
-                                background: 'white',
-                                padding:1
-                            }}>
-                                <img style={{ height: '4rem' }} src={logo} alt="Logo" />
-                            </Box>
-                        </Grid>
-                        <IconButton
-                            sx={{ display: { xs: 'block', md: 'none' } }}
-                            color="inherit"
-                            onClick={handleDrawerOpen}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                    </Toolbar>
-                    <Drawer
-                        anchor="right"
-                        open={isDrawerOpen}
-                        onClose={handleDrawerClose}
-                    >
-                        <List>
-                            {menuItems.map((item, index) => (
-                                <ListItem>
-                                <ListItemButton key={index} onClick={() => { handleDrawerClose(); navigate(item.path); }}>
-                                    <ListItemText primary={item.label} />
-                                    </ListItemButton>
-                                </ListItem>
-                            ))}
-                            <ListItem>
-                                <Button variant='contained'
-                                    sx={{
-                                        background: '#EEA676',
-                                        padding: "0.6rem 1.5rem",
-                                        borderRadius: '50px',
-                                        fontFamily: "Outfit",
-                                        '&:hover': {
-                                            backgroundColor: '#EEA676',
-                                        },
-                                    }}>
-                                    Book Appoinment
-                                </Button>
-                            </ListItem>
-                        </List>
-                    </Drawer>
-                </Container>
+                <NavBar/>
                 <Container sx={{
                     mt: 7,
                     display: 'flex',
@@ -284,7 +150,7 @@ const Home = () => {
                 <Box
                     sx={{
                         position: 'absolute',
-                        top: '45%',
+                        top: '40%',
                         left: '3%',
                         transform: 'translateY(-55%)', // Center vertically
                         zIndex: 1, // Ensure SVG is above other content
@@ -296,7 +162,7 @@ const Home = () => {
                     sx={{
                         position: 'absolute',
                         right: '5%',
-                        top: '40%',
+                        top: '38%',
                         transform: 'translateY(-60%)', // Center vertically
                         zIndex: 1, // Ensure SVG is above other content
 

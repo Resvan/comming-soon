@@ -6,7 +6,7 @@ const Features = ({ imageUrl, heading, description }) => {
         <Box sx={{
             width: '80%',
         }} >
-            <Avatar sx={{ backgroundColor: 'white', width: 50, height: 50, }}>
+            <Avatar sx={{ backgroundColor: 'white', width: 40, height: 40, }}>
                 <img src={imageUrl} alt="Feature" style={{ width: '70%', height: '70%', }} />
             </Avatar>
             <Typography variant='h6' component={'h6'} sx={{
