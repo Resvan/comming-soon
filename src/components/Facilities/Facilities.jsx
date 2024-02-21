@@ -93,7 +93,8 @@ const Facilities = () => {
                   fontFamily: 'Outfit',
                   letterSpacing: '0.38px',
                   color: '#036C5F',
-                  fontWeight: 600
+                  fontWeight: 600,
+                  textWrap:'nowrap'
               }}>Make an Appointment</Typography>
               <img src={topArrowPrimary} alt="" />
           </Box>

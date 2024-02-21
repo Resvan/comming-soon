@@ -402,7 +402,8 @@ const Home = () => {
                         fontFamily: 'Outfit',
                         letterSpacing: '0.38px',
                         color: '#036C5F',
-                        fontWeight: 500
+                        fontWeight: 500,
+                        textWrap:'nowrap'
                     }}>Shop Now</Typography>
                     <img src={topArrowPrimary} alt="" />
                 </Box>
