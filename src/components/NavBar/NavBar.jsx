@@ -61,13 +61,13 @@ const NavBar = () => {
               >contact@gnanaprakasam.com</Typography>
           </Box>
           <Toolbar sx={{
-              display: { xs: 'none', lg: 'flex' },
+              display: { xs: 'none', md: 'flex' },
               background: '#fff',
               py: 1,
               mt: 3,
-              gap: 2
+              gap:{md:1, lg:2}
           }}>
-              <Box sx={{ display: 'flex', flexGrow: 1, alignItems: 'center', gap: '2rem' }}>
+              <Box sx={{ display: 'flex', flexGrow: 1, alignItems: 'center', gap: {md:'0.6rem', lg:'2rem'} }}>
                   <img src={logo} alt="" onClick={() => navigate('/home')} style={{
                       cursor: 'pointer',
                   }} />
@@ -102,11 +102,12 @@ const NavBar = () => {
                       '&:hover': {
                           backgroundColor: '#EEA676',
                       },
+                      minWidth:'max-content'
                   }}>
                   Book Appoinment
               </Button>
           </Toolbar>
-          <Toolbar sx={{ padding: '5px', display: { xs: 'flex', lg: 'none' }, alignItems: 'start' }}>
+          <Toolbar sx={{ padding: '5px', display: { xs: 'flex', md: 'none' }, alignItems: 'start' }}>
               <Grid container alignItems="end" justifyContent="center">
                   <Box sx={{
                       background: 'white',
@@ -116,7 +117,6 @@ const NavBar = () => {
                   </Box>
               </Grid>
               <IconButton
-                  sx={{ display: { xs: 'block', lg: 'none' } }}
                   color="inherit"
                   onClick={handleDrawerOpen}
               >
