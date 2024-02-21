@@ -6,7 +6,6 @@ import ArrowForwardIcon from '../../assets/forwardArrow.svg';
 import ArrowBackwardIcon from '../../assets/backArrow.svg';
 import CeoImage from '../../assets/ceo.png';
 import SuffleCard from './SuffleCard';
-import NewSlider from './NewSldert';
 import TestmonialShape from '../../assets/testmonial-shape.svg'
 
 const Testmonial = () => {

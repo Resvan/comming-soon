@@ -5,7 +5,8 @@ import styled from '@emotion/styled';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import cartIcon from '../../assets/cart-icon.svg';
-
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const StyledText = styled(Typography)(({ theme, variant }) => ({
     cursor: 'pointer',
@@ -15,6 +16,9 @@ const StyledText = styled(Typography)(({ theme, variant }) => ({
 }));
 
 const NavBar = () => {
+    const theme = useTheme();
+    const isMd = useMediaQuery(theme.breakpoints.up('md'));
+    const isLg = useMediaQuery(theme.breakpoints.up('lg'));
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -39,7 +43,7 @@ const NavBar = () => {
         { label: 'Contact', path: '/contact' },
     ];
   return (
-      <Container>
+      <Container >
           <Box sx={{
               display: { xs: 'none', md: 'flex' },
               gap: 5,
@@ -57,7 +61,7 @@ const NavBar = () => {
               >contact@gnanaprakasam.com</Typography>
           </Box>
           <Toolbar sx={{
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'none', lg: 'flex' },
               background: '#fff',
               py: 1,
               mt: 3,
@@ -94,6 +98,7 @@ const NavBar = () => {
                       padding: "0.6rem 1.5rem",
                       borderRadius: '50px',
                       fontFamily: "Outfit",
+                      textWrap:'nowrap',
                       '&:hover': {
                           backgroundColor: '#EEA676',
                       },
@@ -101,7 +106,7 @@ const NavBar = () => {
                   Book Appoinment
               </Button>
           </Toolbar>
-          <Toolbar sx={{ padding: '5px', display: { xs: 'flex', md: 'none' }, alignItems: 'start' }}>
+          <Toolbar sx={{ padding: '5px', display: { xs: 'flex', lg: 'none' }, alignItems: 'start' }}>
               <Grid container alignItems="end" justifyContent="center">
                   <Box sx={{
                       background: 'white',
@@ -111,7 +116,7 @@ const NavBar = () => {
                   </Box>
               </Grid>
               <IconButton
-                  sx={{ display: { xs: 'block', md: 'none' } }}
+                  sx={{ display: { xs: 'block', lg: 'none' } }}
                   color="inherit"
                   onClick={handleDrawerOpen}
               >

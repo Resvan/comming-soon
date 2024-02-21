@@ -37,6 +37,8 @@ const Home = () => {
         setPlaying(!playing);
     };
 
+
+
     return (
         <>
             <Box
@@ -302,7 +304,7 @@ const Home = () => {
                             backgroundColor: "white",
                             position: 'absolute',
                             top: '50%',
-                            right: { xs: '-1%', md: '-10%' },
+                            right: { xs: '0%', md: '0%', lg: '-9%' },
                             transform: 'translateY(-55%)',
                             borderRadius: '50%',
                             padding: '5px'
