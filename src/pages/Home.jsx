@@ -391,6 +391,7 @@ const Home = () => {
                 <Box sx={{
                     border: '1.5px solid #036C5F',
                     maxWidth: 'fit-content',
+                    minWidth: 'fit-content',
                     px: 4,
                     py: 2.5,
                     borderRadius: '50px',
