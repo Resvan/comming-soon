@@ -83,7 +83,7 @@ const Facilities = () => {
               border: '1.5px solid #036C5F',
               maxWidth: 'fit-content',
               px: 4,
-              py: 2,
+              py: 2.8,
               borderRadius: '50px',
               display: 'flex',
               gap: 1,

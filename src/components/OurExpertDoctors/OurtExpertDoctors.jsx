@@ -35,6 +35,7 @@ const OurtExpertDoctors = () => {
                   fontFamily: 'Outfit',
                   fontWeight: 600,
                   mb: 8,
+                  mt:1,
                   textAlign: 'center'
               }}
           >

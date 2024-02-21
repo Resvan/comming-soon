@@ -211,7 +211,7 @@ const Home = () => {
                         maxWidth: 'fit-content',
                         mt: 4,
                         px: 4,
-                        py: 2,
+                        py: 2.8,
                         borderRadius: '50px',
                         display: 'flex',
                         gap: 1
@@ -405,7 +405,7 @@ const Home = () => {
                             border: '1.5px solid #036C5F',
                             maxWidth: 'fit-content',
                             px: 4,
-                            py: 1,
+                            py: 2,
                             mt:4,
                             borderRadius: '50px',
                             display: 'flex',
@@ -524,7 +524,7 @@ const Home = () => {
                     border: '1.5px solid #036C5F',
                     maxWidth: 'fit-content',
                     px: 4,
-                    py: 2,
+                    py: 2.5,
                     borderRadius: '50px',
                     display: 'flex',
                     gap: 1
