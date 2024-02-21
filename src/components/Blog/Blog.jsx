@@ -90,7 +90,7 @@ const Blog = () => {
                               display: 'flex',
                               gap: 1,
                               alignItems: 'center',
-                              height: '58%',
+                              height: '8rem',
                               px:4
                           }}>
                               <Typography component={'p'} variant='p' sx={{
