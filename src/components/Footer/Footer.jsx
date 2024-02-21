@@ -323,7 +323,7 @@ const Footer = () => {
                 <Typography sx={{
                     fontFamily: 'Outfit',
                     textAlign: 'center',
-                    my:2
+                    py:2
                 }}>
                     © 2024 Ganna Prakasam. All rights reserved.
                 </Typography>
