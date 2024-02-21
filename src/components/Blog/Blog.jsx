@@ -36,11 +36,12 @@ const Blog = () => {
                           textAlign: 'left',
                           fontFamily: 'Outfit',
                           fontWeight: 600,
+                          mt:1,
                       }}>
                           Our Latest Posts
                       </Typography>
                       <Box sx={{
-                          mt:5
+                          mt:4
                       }}>
                           <img style={{
                               width: '100%',
@@ -109,7 +110,7 @@ const Blog = () => {
                                   display: 'flex',
                                   flexDirection:{xs:'column', md:'row'},
                                   gap: 2,
-                                  mb:2
+                                  mb:3.2
                               }}>
                                       <img style={{
                                           height: '8rem',

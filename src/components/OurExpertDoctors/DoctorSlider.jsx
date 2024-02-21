@@ -39,7 +39,7 @@ const DoctorSlider = () => {
           {Array.from({ length: 6 }).map((_, index) => (
               <SwiperSlide style={{
                   display: 'flex',
-                  flexDirection: 'column'
+                  flexDirection: 'column',
               }}>
                   <Box sx={{
                       backgroundColor: '#FBF7F3',

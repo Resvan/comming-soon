@@ -233,9 +233,9 @@ const Home = () => {
                     <div style={{
                         position: 'absolute',
                         background: "#EEA676",
-                        width: '60%',
+                        width: '70%',
                         top: -10,
-                        left: '13%',
+                        left: '6%',
                         height: '90%'
                     }}></div>
 
@@ -245,10 +245,10 @@ const Home = () => {
                         url={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
                         playing={playing}
                         controls={true}
-                        width="75%"
-                        height="40%"
+                        width="90%"
+                        height={'100%'}
                         style={{
-                            zIndex: 1
+                            zIndex: 1,
                         }}
                     />
                     <Box
@@ -315,6 +315,7 @@ const Home = () => {
                     }}>
                         <Box sx={{
                             display: 'flex',
+                            alignItems:'center',
                             gap: 2,
                         }}>
                             <div style={{
@@ -350,11 +351,12 @@ const Home = () => {
                         </Typography>
                         <Box sx={{
                             display: 'flex',
+                            alignItems:'center',
                             gap: 2,
                             mb: 1,
                         }}>
                             <img src={tickIcon} style={{
-                                height:'2rem'
+                                height:'1.5rem'
                             }} alt="" />
                             <Typography sx={{
                                 fontFamily: 'Outfit'
@@ -362,11 +364,12 @@ const Home = () => {
                         </Box>
                         <Box sx={{
                             display: 'flex',
+                            alignItems: 'center',
                             gap: 2,
                             mb: 1,
                         }}>
                             <img src={tickIcon} alt="" style={{
-                                height: '2rem'
+                                height: '1.5rem'
                             }} />
                             <Typography sx={{
                                 fontFamily: 'Outfit'
@@ -374,11 +377,12 @@ const Home = () => {
                         </Box>
                         <Box sx={{
                             display: 'flex',
+                            alignItems: 'center',
                             gap: 2,
                             mb: 1,
                         }}>
                             <img src={tickIcon} alt="" style={{
-                                height: '2rem'
+                                height: '1.5rem'
                             }} />
                             <Typography sx={{
                                 fontFamily: 'Outfit'
@@ -386,11 +390,12 @@ const Home = () => {
                         </Box>
                         <Box sx={{
                             display: 'flex',
+                            alignItems: 'center',
                             gap: 2,
                             mb: 1,
                         }}>
                             <img src={tickIcon} alt="" style={{
-                                height: '2rem'
+                                height: '1.5rem'
                             }} />
                             <Typography sx={{
                                 fontFamily: 'Outfit'
@@ -489,6 +494,7 @@ const Home = () => {
                         fontFamily: 'Outfit',
                         fontWeight: 600,
                         mb: 2,
+                        mt: 1,
                         fontSize: { xs: '2rem', md: '3rem' }
                     }}
                 >

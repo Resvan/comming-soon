@@ -11,7 +11,7 @@ import topArrowPrimary from '../../assets/topArrowPrimary.svg';
 const Facilities = () => {
   return (
       <Container sx={{
-          my: 5,
+          my: '5rem',
           display: 'flex',
           alignItems: 'center',
           flexDirection: 'column',
@@ -39,6 +39,7 @@ const Facilities = () => {
                   fontFamily: 'Outfit',
                   fontWeight: 600,
                   mb: 2,
+                  mt:1,
                   textAlign:'center'
               }}
           >
