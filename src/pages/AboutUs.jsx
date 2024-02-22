@@ -15,6 +15,7 @@ import Engagement from '../assets/engagement.svg';
 import Improvement from '../assets/improvement.png';
 import Footer from '../components/Footer/Footer';
 import AboutShape from '../assets/about-shape.svg'
+import FAQ from '../components/FAQ/FAQ';
 
 
 const AboutUs = () => {
@@ -303,7 +304,6 @@ const AboutUs = () => {
             <Box sx={{
                 backgroundColor: '#FBF7F3',
                 py: '5rem',
-                mb:'12rem',
             }}>
                 <Container sx={{
                     justifyContent:'center'
@@ -372,6 +372,7 @@ const AboutUs = () => {
                     </Grid>
                 </Container>
             </Box>
+            <FAQ/>
             <Footer/>
         </>
     )
