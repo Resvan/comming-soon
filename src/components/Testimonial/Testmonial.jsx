@@ -1,5 +1,5 @@
 import { Avatar, Box, Container, Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import Qoute1 from '../../assets/qoutes1.svg';
 import Qoute2 from '../../assets/qoutes2.svg';
 import ArrowForwardIcon from '../../assets/forwardArrow.svg';
@@ -7,8 +7,34 @@ import ArrowBackwardIcon from '../../assets/backArrow.svg';
 import CeoImage from '../../assets/ceo.png';
 import SuffleCard from './SuffleCard';
 import TestmonialShape from '../../assets/testmonial-shape.svg'
+import ReviewCard from './ReviewCard';
 
 const Testmonial = () => {
+    const cards = [
+        { backgroundColor: 'red', content: 'my card one' },
+        { backgroundColor: 'green', content: 'my card two' },
+        { backgroundColor: 'blue', content: 'my card three' },
+        { backgroundColor: 'yellow', content: 'my card four' },
+        { backgroundColor: 'black', content: 'my card five' }
+    ];
+
+    const [activeCard, setActiveCard] = useState(0);
+    const [prevCard, setPrevCard] = useState(cards.length - 1);
+    const [nextCard, setNextCard] = useState(1);
+
+
+    const handleNext = () => {
+        setPrevCard(activeCard);
+        setActiveCard((prev) => (prev + 1) % cards.length);
+        setNextCard((prev) => (prev + 1) % cards.length);
+    };
+
+    const handlePrev = () => {
+        setActiveCard(prevCard);
+        setNextCard(activeCard);
+        setPrevCard((prev) => (prev - 1 + cards.length) % cards.length);
+    };
+
   return (
       <Box
           sx={{
@@ -104,23 +130,98 @@ const Testmonial = () => {
                       </Box>
                   </Grid>
                   <Grid item xs={12} md={6} sx={{
-                      display: {xs:'none', md:'flex'},
-                      gap: 2,
-                      position: 'relative',
+                      display: { xs: 'none', md: 'flex' },
                   }}>
-                      {/* <Box sx={{
+
+                      <Box sx={{
+                          alignSelf: 'center',
+                          mt:'5rem'
+                      }}>
+                          <div style={{
+                              marginBottom:'1rem'
+                          }} className="review-button">
+                              <img src={ArrowBackwardIcon}
+                                  onClick={handlePrev} alt="" />
+                          </div>
+                          <div className="review-button image-review-button-next">
+                              <img src={ArrowForwardIcon}
+                                  onClick={handleNext} alt="" />
+                          </div>
+                      </Box>
+                      <Box sx={{
+                          position: 'relative',
+                          width: '100%',
+                          display: 'flex',
+                          justifyContent:'end'
+                      }}>
+                          {cards.map((card, index) => (
+                              <Box
+                                  key={index}
+                                  style={{
+                                      position: 'absolute',
+                                      zIndex: activeCard === index ? 2 : nextCard === index ? 1 : 0,
+                                      opacity: activeCard === index ? 1 : nextCard === index ? 0.5 : prevCard === index ? 0 : 0,
+                                      transition: 'all 0.5s linear',
+                                      transform: activeCard === index ? 'translateY(50%) translateX(-20%) ' : prevCard === index ? 'translateY(100%) translateX(0%)' : 'none',
+                                  }}
+                                  sx={{
+                                      width: { xs: '90%', md: '80%' },
+                                      justifySelf: 'end'
+                                  }}
+                              >
+                                  <ReviewCard />
+                              </Box>
+                          ))}
+                      </Box>
+ 
+                  </Grid>
+                  <Grid item xs={12} md={6} sx={{
+                      display: { xs: 'flex', md: 'none' },
+                      flexDirection: 'column',
+                      mt:'3rem'
+                  }}>
+                      <Box sx={{
+                          position: 'relative',
+                          width: '100%',
+                          display: 'flex',
+                          justifyContent: 'end'
+                      }}>
+                          {cards.map((card, index) => (
+                              <Box
+                                  key={index}
+                                  style={{
+                                      position: 'absolute',
+                                      zIndex: activeCard === index ? 2 : nextCard === index ? 1 : 0,
+                                      opacity: activeCard === index ? 1 : nextCard === index ? 0.5 : prevCard === index ? 0 : 0,
+                                      transition: 'all 0.5s linear',
+                                      transform: activeCard === index ? 'translateY(30%) translateX(-10%) ' : prevCard === index ? 'translateY(100%) translateX(0%)' : 'none',
+                                  }}
+                                  sx={{
+                                      width: { xs: '90%', md: '80%' },
+                                      justifySelf: 'end'
+                                  }}
+                              >
+                                  <ReviewCard />
+                              </Box>
+                          ))}
+                      </Box>
+                      <Box sx={{
+                          mt: '18rem',
                           alignSelf:'end'
                       }}>
+                          <div style={{
+                              marginBottom: '1rem'
+                          }} className="review-button">
+                              <img src={ArrowBackwardIcon}
+                                  onClick={handlePrev} alt="" />
+                          </div>
                           <div className="review-button image-review-button-next">
-                              <img src={ArrowForwardIcon} alt="" />
+                              <img src={ArrowForwardIcon}
+                                  onClick={handleNext} alt="" />
                           </div>
-                          <div className="review-button image-review-button-prev">
-                              <img src={ArrowBackwardIcon} alt="" />
-                          </div>
-                      </Box> */}
-                      <SuffleCard/>
+                      </Box>
                   </Grid>
-                  <Grid item xs={12} sx={{
+                  {/* <Grid item xs={12} sx={{
                       display: { xs: 'block', md: 'none' },
                       position: 'relative',
                       minHeight:'18rem',
@@ -128,7 +229,7 @@ const Testmonial = () => {
                   }}>
                       
                     <SuffleCard/>
-                      {/* <Box sx={{
+                      <Box sx={{
                           display: 'flex',
                           justifyContent: 'end',
                           gap: 2,
@@ -140,14 +241,12 @@ const Testmonial = () => {
                           <div className="review-button image-review-button-next">
                               <img src={ArrowForwardIcon} alt="" />
                           </div>
-                      </Box> */}
+                      </Box>
                   </Grid>
-                  {/* <Grid item md={6} style={{
+                  <Grid item xs={12} md={6} style={{
                       position: 'relative'
                   }} >
-                      {Array.from({ length: 5 }, (_, index) => (
-                      <NewSlider key={index} active={index} />
-                                  ))}
+                      
                       <Box sx={{
                           display: 'flex',
                           justifyContent: 'end',
@@ -155,10 +254,12 @@ const Testmonial = () => {
                           mt: 5
                       }}>
                           <div className="review-button">
-                              <img src={ArrowBackwardIcon} alt="" />
+                              <img src={ArrowBackwardIcon}
+                                  onClick={handlePrev}  alt="" />
                           </div>
                           <div className="review-button image-review-button-next">
-                              <img src={ArrowForwardIcon} alt="" />
+                              <img src={ArrowForwardIcon}
+                                  onClick={handleNext}    alt="" />
                           </div>
                       </Box>
                   </Grid> */}
