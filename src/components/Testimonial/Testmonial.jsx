@@ -197,7 +197,7 @@ const Testmonial = () => {
                                       transform: activeCard === index ? 'translateY(30%) translateX(-10%) ' : prevCard === index ? 'translateY(100%) translateX(0%)' : 'none',
                                   }}
                                   sx={{
-                                      width: { xs: '90%', md: '80%' },
+                                      width: { xs: '90%', md: '10%' },
                                       justifySelf: 'end'
                                   }}
                               >
