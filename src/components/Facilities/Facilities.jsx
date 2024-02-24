@@ -11,7 +11,8 @@ import topArrowPrimary from '../../assets/topArrowPrimary.svg';
 const Facilities = () => {
   return (
       <Container sx={{
-          my: '5rem',
+          mt: '6rem',
+          mb:'3rem',
           display: 'flex',
           alignItems: 'center',
           flexDirection: 'column',
