@@ -10,7 +10,11 @@ const ServiceCard = ({ speciality, image, link, des }) => {
       <Box sx={{
           backgroundColor: 'white',
           padding: '1.5rem',
-          border:'1px solid #E1E9E8'
+          border: '1px solid #E1E9E8',
+          cursor:'pointer',
+          '&:hover': {
+              backgroundColor: '#FBF7F3',
+          }
       }}>
           <Avatar sx={{ backgroundColor: '#DEEEEC', width: 50, height: 50, padding: '1rem' }}>
               <img src={image} alt={speciality} style={{ width: '70%', height: '70%', }} />
@@ -19,7 +23,7 @@ const ServiceCard = ({ speciality, image, link, des }) => {
               fontFamily: 'Outfit',
               color: '#042622',
               fontWeight: 600,
-              mt: 2
+              mt: 3
           }}>{speciality}</Typography>
           <Typography component={'p'} variant='p'
               sx={{
@@ -29,6 +33,22 @@ const ServiceCard = ({ speciality, image, link, des }) => {
                   mt: 1
               }}
           >{des}</Typography>
+          <Typography
+              component={'h6'}
+              variant='h6'
+              sx={{
+                  fontFamily: "Outfit",
+                  color: "#036C5F",
+                  lineHeight: '30px',
+                  mt: 2,
+                  fontWeight: 500,
+                  textDecoration: 'underline', 
+                  cursor: 'pointer', 
+                  width:'fit-content'
+              }}
+          >
+              Explore Now
+          </Typography>
       </Box>
   )
 }

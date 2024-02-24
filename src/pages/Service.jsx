@@ -20,7 +20,7 @@ import Facilities from '../components/Facilities/Facilities';
 import topArrowWhite from '../assets/topArrowWhite.svg';
 import AppoinmentImg from '../assets/AppoinmentImg.png';
 import Footer from '../components/Footer/Footer';
-
+import AppoinmentShape from '../assets/appoinmentShape.svg';
 
 const Service = () => {
     const specialties = [
@@ -175,18 +175,19 @@ const Service = () => {
                   }} alt="" />
               </Box>
           </Box>
-          <Grid container spacing={4} sx={{
-              px: 5,
-              mt:'4rem'
-          }}>
-              {
-                  specialties.map((spe, i) => (
-                      <Grid key={i} item xs={12} sm={6} md={3}>
-                        <ServiceCard speciality={spe.heading} image={spe.speciality} link={spe.link} des={spe.des} />
-                      </Grid>
-                  )) 
-              }
-          </Grid>
+          <Container>
+              <Grid container spacing={3} sx={{
+                  mt: '4rem'
+              }}>
+                  {
+                      specialties.map((spe, i) => (
+                          <Grid key={i} item xs={12} sm={6} md={3}>
+                              <ServiceCard speciality={spe.heading} image={spe.speciality} link={spe.link} des={spe.des} />
+                          </Grid>
+                      ))
+                  }
+              </Grid>
+          </Container>
           <Facilities />
           <Container sx={{
               mb: "6rem",
@@ -196,7 +197,8 @@ const Service = () => {
                       backgroundColor: '#036C5F',
                       pt: '4rem',
                       pb: '6rem',
-                      px:'3rem'
+                      px: '3rem',
+                      position:'relative',
                   }}>
                       <Box sx={{
                           display: 'flex',
@@ -258,6 +260,15 @@ const Service = () => {
                               textWrap: 'nowrap'
                           }}>Learn More</Typography>
                           <img src={topArrowWhite} alt="" />
+                      </Box>
+                      <Box sx={{
+                          position: 'absolute',
+                          right: '0%',
+                         bottom:'0%'
+                      }}>
+                          <img src={AppoinmentShape} style={{
+                              height:'8rem '
+                          }} alt="" />
                       </Box>
                   </Grid>
                   <Grid item xs={12} md={6}>
