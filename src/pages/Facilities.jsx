@@ -13,6 +13,14 @@ import Care from '../assets/Care.png';
 import Commitment from '../assets/Commitment.png';
 import FAQ from '../components/FAQ/FAQ';
 import Footer from '../components/Footer/Footer';
+import gallery1 from '../assets/gallery-1.png';
+import gallery2 from '../assets/gallery-2.png';
+import gallery3 from '../assets/gallery-3.png';
+import gallery4 from '../assets/gallery-4.png';
+import gallery5 from '../assets/gallery-5.png';
+import gallery6 from '../assets/gallery-6.png';
+import drawonWhyUs from '../assets/drawonWhyus.svg';
+
 
 const Facilities = () => {
     return (
@@ -58,7 +66,7 @@ const Facilities = () => {
                         fontFamily: "Outfit",
                         fontWeight: 600,
                         textAlign: 'center',
-                        fontSize: { xs: '2rem', md: '4rem' },
+                        fontSize: { xs: '2rem', md: '3.5rem' },
                         mt: 2
                     }} variant='h2' component='h2' >
                         Our Way of Operations <br /> Congue Sapien
@@ -543,6 +551,68 @@ const Facilities = () => {
                                 </Box>
 
                             </Box>
+                        </Grid>
+                    </Grid>
+                    <Box sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: 2,
+                        width: '95%',
+                        mt:'5rem'
+                    }}>
+                        <div style={{
+                            height: '2px',
+                            width: '6rem',
+                            backgroundColor: '#EEA676',
+                            alignSelf: 'center'
+                        }}></div>
+                        <Typography component='p' variant='p' sx={{
+                            color: '#EEA676',
+                            fontFamily: 'Outfit',
+                            position: 'relative',
+                            fontWeight: 500
+                        }}>
+                            Our Gallery
+                        </Typography>
+                    </Box>
+                    <Typography
+                        component='h3' variant='h3'
+                        sx={{
+                            fontFamily: 'Outfit',
+                            fontWeight: 600,
+                            mb: 2,
+                            mt: 1,
+                            textAlign: 'center',
+                            color: '#042622',
+                            fontSize: { xs: '1.5rem', md: '3rem' },
+                        }}
+                    >
+                        Affordable Appointment <br /> Memories for Everyone
+                    </Typography>
+                    <Grid container spacing={4} mt={5}>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <img src={gallery1} alt="" />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <img src={gallery2} alt="" />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <img src={gallery3} alt="" />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <img src={gallery4} alt="" />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <img src={gallery5} alt="" />
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} position={'relative'}>
+                            <img src={gallery6} alt="" />
+                            <img src={drawonWhyUs} alt="" style={{
+                                position: 'absolute',
+                                bottom: "-10%",
+                                right:"-20%",
+                            }} />
                         </Grid>
                     </Grid>
                 </Container>
