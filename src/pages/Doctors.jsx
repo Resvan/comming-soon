@@ -5,12 +5,18 @@ import Stethoscope from '../assets/stethoscope.svg';
 import Medicine from '../assets/medicine.svg';
 import NewDoctor from '../assets/NewDoctor.png';
 import Footer from '../components/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Doctors = () => {
 
     const doctorsData = new Array(9).fill(null);
+    const navigate = useNavigate();
 
+    const handleItemClick = () => {
+        navigate('/doctor/1')
+    };
 
   return (
       <>
@@ -96,7 +102,7 @@ const Doctors = () => {
           }}>
               <Grid container spacing={5}>
                   {doctorsData.map((_, index) => (
-                      <Grid item key={index} xs={12} sm={6} md={4} sx={{
+                      <Grid item key={index} xs={12} sm={6} md={4} onClick={handleItemClick} sx={{
                           textAlign: 'center',
                           color: '#042622',
                           '&:hover': {
@@ -105,7 +111,8 @@ const Doctors = () => {
                                   color: '#036C5F'
                               },
                           },
-                      }}>
+                      }}
+                      >
                           <Box sx={{
                               backgroundColor: '#FBF7F3',
                               display: 'flex',

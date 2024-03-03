@@ -332,7 +332,8 @@ const DoctorDetails = () => {
                                   render={({ field }) => (
                                       <Select
                                           {...field}
-                                          placeholder='Select your email'
+                                          displayEmpty
+                                          defaultValue=""
                                           margin="normal"
                                           fullWidth
                                           variant="outlined"
@@ -340,10 +341,13 @@ const DoctorDetails = () => {
                                               backgroundColor: 'rgba(222, 238, 236, 0.35)',
                                               mt: 5,
                                               mb: 2,
+                                              color:'rgba(60, 66, 83, 0.65)'
                                           }}
                                           error={!!errors.email}
                                       >
-                                          <MenuItem value="">Select an email</MenuItem>
+                                          <MenuItem value="" disabled>
+                                              Select your email
+                                          </MenuItem>
                                           <MenuItem value="email1@example.com">email1@example.com</MenuItem>
                                           <MenuItem value="email2@example.com">email2@example.com</MenuItem>
                                           {/* Add other email options as needed */}
@@ -358,17 +362,21 @@ const DoctorDetails = () => {
                                   render={({ field }) => (
                                       <Select
                                           {...field}
-                                          placeholder='Select your email'
+                                          displayEmpty
+                                          defaultValue=""
                                           margin="normal"
                                           fullWidth
                                           variant="outlined"
                                           sx={{
                                               backgroundColor: 'rgba(222, 238, 236, 0.35)',
                                               my: 2,
+                                              color:'rgba(60, 66, 83, 0.65)'
                                           }}
                                           error={!!errors.email}
                                       >
-                                          <MenuItem value="">Select an email</MenuItem>
+                                          <MenuItem value="" disabled>
+                                              Select your email
+                                          </MenuItem>
                                           <MenuItem value="email1@example.com">email1@example.com</MenuItem>
                                           <MenuItem value="email2@example.com">email2@example.com</MenuItem>
                                           {/* Add other email options as needed */}
@@ -376,14 +384,14 @@ const DoctorDetails = () => {
                                   )}
                               />
                               <Controller
-                                  name="email"
+                                  name="name"
                                   control={control}
                                   defaultValue=""
                                   rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
                                   render={({ field }) => (
                                       <TextField
                                           {...field}
-                                          placeholder='Enter your email'
+                                          placeholder='Enter Your Name'
                                           margin="normal"
                                           fullWidth
                                           variant="outlined"
@@ -411,7 +419,7 @@ const DoctorDetails = () => {
                                   render={({ field }) => (
                                       <TextField
                                           {...field}
-                                          placeholder='Enter your email'
+                                          placeholder='Email Address'
                                           margin="normal"
                                           fullWidth
                                           variant="outlined"
@@ -432,14 +440,14 @@ const DoctorDetails = () => {
                                   )}
                               />
                               <Controller
-                                  name="email"
+                                  name="Date"
                                   control={control}
                                   defaultValue=""
                                   rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
                                   render={({ field }) => (
                                       <TextField
                                           {...field}
-                                          placeholder='Enter your email'
+                                          placeholder='Date'
                                           margin="normal"
                                           fullWidth
                                           variant="outlined"
@@ -460,14 +468,14 @@ const DoctorDetails = () => {
                                   )}
                               />
                               <Controller
-                                  name="email"
+                                  name="Time"
                                   control={control}
                                   defaultValue=""
                                   rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
                                   render={({ field }) => (
                                       <TextField
                                           {...field}
-                                          placeholder='Enter your email'
+                                          placeholder='Time'
                                           margin="normal"
                                           fullWidth
                                           variant="outlined"
