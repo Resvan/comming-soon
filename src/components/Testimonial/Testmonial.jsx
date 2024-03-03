@@ -9,7 +9,7 @@ import SuffleCard from './SuffleCard';
 import TestmonialShape from '../../assets/testmonial-shape.svg'
 import ReviewCard from './ReviewCard';
 
-const Testmonial = () => {
+const Testmonial = ({bgcolor = true}) => {
     const cards = [
         { backgroundColor: 'red', content: 'my card one' },
         { backgroundColor: 'green', content: 'my card two' },
@@ -38,7 +38,7 @@ const Testmonial = () => {
   return (
       <Box
           sx={{
-              backgroundColor: '#FBF7F3',
+              backgroundColor: bgcolor ? '#FBF7F3' : 'white' ,
               py: '6rem',
               mt: 5,
               position:'relative'
@@ -166,7 +166,8 @@ const Testmonial = () => {
                                   }}
                                   sx={{
                                       width: { xs: '90%', md: '80%' },
-                                      justifySelf: 'end'
+                                      justifySelf: 'end',
+                                      boxShadow:'0px 22px 80px 0px rgba(0, 0, 0, 0.04)'
                                   }}
                               >
                                   <ReviewCard />

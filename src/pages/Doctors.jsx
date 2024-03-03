@@ -3,7 +3,6 @@ import React from 'react';
 import NavBar from '../components/NavBar/NavBar';
 import Stethoscope from '../assets/stethoscope.svg';
 import Medicine from '../assets/medicine.svg';
-import DoctorImage from '../assets/Doctor.png';
 import NewDoctor from '../assets/NewDoctor.png';
 import Footer from '../components/Footer/Footer';
 
@@ -133,8 +132,6 @@ const Doctors = () => {
                               Gynecology
                           </Typography>
                       </Grid>
-
-
                   ))}
               </Grid>
           </Container>

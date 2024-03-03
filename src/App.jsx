@@ -5,6 +5,7 @@ import AboutUs from "./pages/AboutUs"
 import Service from "./pages/Service"
 import Facilities from "./pages/Facilities"
 import Doctors from "./pages/Doctors"
+import DoctorDetails from "./pages/DoctorDetails"
 
 
 
@@ -18,6 +19,7 @@ function App() {
       <Route path="/services" element={<Service />} />
       <Route path="/facilities" element={<Facilities />} />
       <Route path="/doctors" element={<Doctors />} />
+      <Route path="/doctor/:id" element={<DoctorDetails />} />
     </Routes>
 
   )
