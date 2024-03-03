@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, InputAdornment, TextField, Typography } from '@mui/material';
 import React from 'react';
 import NavBar from '../components/NavBar/NavBar';
 import Stethoscope from '../assets/stethoscope.svg';
@@ -9,6 +9,10 @@ import Testmonial from '../components/Testimonial/Testmonial';
 import Footer from '../components/Footer/Footer';
 import { Controller, useForm } from 'react-hook-form';
 import { Select, MenuItem } from '@mui/material';
+import user from '../assets/userSvg.svg';
+import mail from '../assets/mailSvg.svg';
+import calendar from '../assets/calendarSvg.svg';
+import clock from '../assets/clockSvg.svg';
 
 
 const DoctorDetails = () => {
@@ -389,6 +393,13 @@ const DoctorDetails = () => {
                                           }}
                                           error={!!errors.email}
                                           helperText={errors.email?.message}
+                                          InputProps={{
+                                              endAdornment: (
+                                                  <InputAdornment position="end">
+                                                      <img src={user} alt="Icon" /> {/* Add your image here */}
+                                                  </InputAdornment>
+                                              )
+                                          }}
                                       />
                                   )}
                               />
@@ -410,6 +421,13 @@ const DoctorDetails = () => {
                                           }}
                                           error={!!errors.email}
                                           helperText={errors.email?.message}
+                                          InputProps={{
+                                              endAdornment: (
+                                                  <InputAdornment position="end">
+                                                      <img src={mail} alt="Icon" /> {/* Add your image here */}
+                                                  </InputAdornment>
+                                              )
+                                          }}
                                       />
                                   )}
                               />
@@ -431,6 +449,41 @@ const DoctorDetails = () => {
                                           }}
                                           error={!!errors.email}
                                           helperText={errors.email?.message}
+                                          InputProps={{
+                                              endAdornment: (
+                                                  <InputAdornment position="end">
+                                                      <img src={calendar} alt="Icon" /> {/* Add your image here */}
+                                                  </InputAdornment>
+                                              )
+                                          }}
+                                      />
+                                  )}
+                              />
+                              <Controller
+                                  name="email"
+                                  control={control}
+                                  defaultValue=""
+                                  rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                  render={({ field }) => (
+                                      <TextField
+                                          {...field}
+                                          placeholder='Enter your email'
+                                          margin="normal"
+                                          fullWidth
+                                          variant="outlined"
+                                          sx={{
+                                              backgroundColor: 'rgba(222, 238, 236, 0.35)',
+                                              mt: 3
+                                          }}
+                                          error={!!errors.email}
+                                          helperText={errors.email?.message}
+                                          InputProps={{
+                                              endAdornment: (
+                                                  <InputAdornment position="end">
+                                                      <img src={clock} alt="Icon" /> {/* Add your image here */}
+                                                  </InputAdornment>
+                                              )
+                                          }}
                                       />
                                   )}
                               />
