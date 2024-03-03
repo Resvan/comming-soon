@@ -346,7 +346,7 @@ const DoctorDetails = () => {
                                           error={!!errors.email}
                                       >
                                           <MenuItem value="" disabled>
-                                              Select your email
+                                              Choose Department
                                           </MenuItem>
                                           <MenuItem value="email1@example.com">email1@example.com</MenuItem>
                                           <MenuItem value="email2@example.com">email2@example.com</MenuItem>
@@ -375,7 +375,7 @@ const DoctorDetails = () => {
                                           error={!!errors.email}
                                       >
                                           <MenuItem value="" disabled>
-                                              Select your email
+                                              Choose Doctor
                                           </MenuItem>
                                           <MenuItem value="email1@example.com">email1@example.com</MenuItem>
                                           <MenuItem value="email2@example.com">email2@example.com</MenuItem>
