@@ -67,7 +67,8 @@ const Facilities = () => {
                         fontWeight: 600,
                         textAlign: 'center',
                         fontSize: { xs: '2rem', md: '3.5rem' },
-                        mt: 2
+                        mt: 2,
+                        letterSpacing:'1.36px'
                     }} variant='h2' component='h2' >
                         Our Way of Operations <br /> Congue Sapien
                     </Typography>
