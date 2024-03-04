@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Doctors = () => {
 
-    const doctorsData = new Array(9).fill(null);
+    const doctorsData = new Array(4).fill(null);
     const navigate = useNavigate();
 
     const handleItemClick = () => {

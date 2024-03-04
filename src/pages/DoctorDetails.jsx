@@ -397,7 +397,8 @@ const DoctorDetails = () => {
                                           variant="outlined"
                                           sx={{
                                               backgroundColor: 'rgba(222, 238, 236, 0.35)',
-                                              mt:2
+                                              mt: 2,
+                                              color: 'rgba(60, 66, 83, 0.65)'
                                           }}
                                           error={!!errors.email}
                                           helperText={errors.email?.message}
@@ -425,7 +426,8 @@ const DoctorDetails = () => {
                                           variant="outlined"
                                           sx={{
                                               backgroundColor: 'rgba(222, 238, 236, 0.35)',
-                                              mt: 3
+                                              mt: 3,
+                                              color: 'rgba(60, 66, 83, 0.65)'
                                           }}
                                           error={!!errors.email}
                                           helperText={errors.email?.message}
@@ -453,7 +455,8 @@ const DoctorDetails = () => {
                                           variant="outlined"
                                           sx={{
                                               backgroundColor: 'rgba(222, 238, 236, 0.35)',
-                                              mt: 3
+                                              mt: 3,
+                                              color: 'rgba(60, 66, 83, 0.65)'
                                           }}
                                           error={!!errors.email}
                                           helperText={errors.email?.message}
@@ -481,7 +484,8 @@ const DoctorDetails = () => {
                                           variant="outlined"
                                           sx={{
                                               backgroundColor: 'rgba(222, 238, 236, 0.35)',
-                                              mt: 3
+                                              mt: 3,
+                                              color: 'rgba(60, 66, 83, 0.65)'
                                           }}
                                           error={!!errors.email}
                                           helperText={errors.email?.message}
