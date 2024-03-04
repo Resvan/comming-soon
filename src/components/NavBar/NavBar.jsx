@@ -103,7 +103,9 @@ const NavBar = () => {
                           backgroundColor: '#EEA676',
                       },
                       minWidth:'max-content'
-                  }}>
+                  }}
+                  onClick={()=>navigate('/doctors')}
+              >
                   Book Appoinment
               </Button>
           </Toolbar>
@@ -138,6 +140,7 @@ const NavBar = () => {
                   ))}
                   <ListItem>
                       <Button variant='contained'
+                          onClick={() => navigate('/doctors')}
                           sx={{
                               background: '#EEA676',
                               padding: "0.6rem 1.5rem",
