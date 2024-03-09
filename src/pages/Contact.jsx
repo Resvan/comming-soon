@@ -1,0 +1,669 @@
+import { Accordion, AccordionDetails, AccordionSummary, Avatar, Box, Button, Container, Grid, InputAdornment, TextField, TextareaAutosize, Typography } from '@mui/material'
+import React, { useState } from 'react'
+import NavBar from '../components/NavBar/NavBar'
+import Stethoscope from '../assets/stethoscope.svg';
+import Medicine from '../assets/medicine.svg';
+import PhoneIcon from '../assets/phoneIcon.svg';
+import MessageIcon from '../assets/messageIcon.svg';
+import { Controller, useForm } from 'react-hook-form';
+import user from '../assets/userIcon.svg';
+import phone from '../assets/phoneIcon.svg';
+import mail from '../assets/mailIcon.svg';
+import { ExpandMore } from '@mui/icons-material';
+
+
+const Contact = () => {
+    const { control, formState: { errors } } = useForm();
+
+    const [expanded, setExpanded] = useState('');
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : null);
+    };
+  return (
+      <>
+          <Box
+              sx={{
+                  color: 'white',
+                  pt: 2,
+                  position: 'relative',
+                  backgroundColor: 'white',
+                  backgroundImage: "linear-gradient(to bottom, #036C5F 80%, rgba(0, 0, 0, 0) 20%)" // Removed spaces before %
+              }}>
+
+              <NavBar />
+              <Container sx={{
+                  mt: 7,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+              }}>
+                  <Box sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 2,
+                  }}>
+                      <div style={{
+                          height: '2px',
+                          width: '7rem',
+                          backgroundColor: '#EEA676',
+                          alignSelf: 'center'
+                      }}></div>
+                      <Typography component='p' variant='p' sx={{
+                          color: '#EEA676',
+                          fontFamily: 'Outfit',
+                          position: 'relative',
+                          fontWeight: 500
+                      }}>
+                          Contact Us
+                      </Typography>
+                  </Box>
+                  <Typography sx={{
+                      fontFamily: "Outfit",
+                      fontWeight: 600,
+                      textAlign: 'center',
+                      fontSize: { xs: '2rem', md: '4.3rem' },
+                      mt: 2
+                  }} variant='h2' component='h2' >
+                      Get in Touch Today
+                  </Typography>
+              </Container>
+              <Container sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  mt: 10,
+                  position:'relative'
+              }} >
+                  <Grid container spacing={3} sx={{
+                      backgroundColor: '#FBF7F3',
+                      mx: '2rem',
+                      py: '3rem',
+                      px:'2rem'
+                  }} >
+                      <Grid item xs={12} md={6} >
+                          <Typography variant='h4' component='h4' sx={{
+                              fontFamily: 'Outfit',
+                              color: '#036C5F',
+                              fontWeight:600
+                          }}>
+                              Have questions?
+                          </Typography>
+                          <Typography variant='h4' component='h4' sx={{
+                              fontFamily: 'Outfit',
+                              color: "#042622",
+                              fontWeight:600
+                          }}>
+                              We are ready to assist you
+                          </Typography>
+                          <Typography component='p' variant='p' sx={{
+                              fontFamily: 'Outfit',
+                              color: '#3C4253',
+                              letterSpacing: '0.36px',
+                              lineHeight: '30px',
+                              mt:3
+                          }}>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis id sodales enim, venenatislo.
+                          </Typography>
+                          <Box sx={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 2,
+                              mt:5
+                          }}>
+                              <Box sx={{
+                                  backgroundColor: '#036C5F',
+                                  width: 'fit-content',
+                                  padding: '7px',
+                                  borderRadius: '50%'
+                              }} >
+                                  <img src={PhoneIcon} alt="" style={{ display: 'block' }} />
+                              </Box>
+                              <Typography sx={{
+                                  fontFamily: 'Outfit',
+                                  color:'#036C5F'
+                              }}>
+                                  (987) 654 - 3210
+                              </Typography>
+                          </Box>
+                          <Box sx={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 2,
+                              mt: 2
+                          }}>
+                              <Box sx={{
+                                  backgroundColor: '#036C5F',
+                                  width: 'fit-content',
+                                  padding: '7px',
+                                  borderRadius: '50%'
+                              }} >
+                                  <img src={MessageIcon} alt="" style={{ display: 'block' }} />
+                              </Box>
+                              <Typography sx={{
+                                  fontFamily: 'Outfit',
+                                  color: '#036C5F'
+                              }}>
+                                  contact@gnanaprakasam.com
+                              </Typography>
+                          </Box>
+                      </Grid>
+                      <Grid item container rowGap={1} columnSpacing={2} xs={12} md={6}>
+                          <Grid item xs={12} md={6}>
+                                  <Controller
+                                      name="First Name"
+                                      control={control}
+                                      defaultValue=""
+                                      rules={{ required: 'First Name is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                      render={({ field }) => (
+                                          <TextField
+                                              {...field}
+                                              fullWidth
+                                              placeholder='First Name'
+                                              margin="normal"
+                                              variant="outlined"
+                                              sx={{
+                                                  backgroundColor: 'white'
+                                              }}
+                                              error={!!errors.email}
+                                              helperText={errors.email?.message}
+                                              InputProps={{
+                                                  endAdornment: (
+                                                      <InputAdornment position="end">
+                                                          <img src={user} alt="Icon" /> {/* Add your image here */}
+                                                      </InputAdornment>
+                                                  )
+                                              }}
+                                          />
+                                      )}
+                                  />
+                          </Grid>
+                          <Grid item xs={12} md={6}>
+                              <Controller
+                                  name="Last Name"
+                                  control={control}
+                                  defaultValue=""
+                                  rules={{ required: 'Last Name is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                  render={({ field }) => (
+                                      <TextField
+                                          {...field}
+                                          placeholder='Last Name'
+                                          margin="normal"
+                                          variant="outlined"
+                                          sx={{
+                                              backgroundColor: 'white'
+                                          }}
+                                          error={!!errors.email}
+                                          helperText={errors.email?.message}
+                                          InputProps={{
+                                              endAdornment: (
+                                                  <InputAdornment position="end">
+                                                      <img src={user} alt="Icon" /> {/* Add your image here */}
+                                                  </InputAdornment>
+                                              )
+                                          }}
+                                      />
+                                  )}
+                              />
+                          </Grid>
+                          <Grid item xs={12} md={6}>
+                              <Controller
+                                  name="Phone"
+                                  control={control}
+                                  defaultValue=""
+                                  rules={{ required: 'Phone is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                  render={({ field }) => (
+                                      <TextField
+                                          {...field}
+                                          placeholder='Phone'
+                                          margin="normal"
+                                          variant="outlined"
+                                          sx={{
+                                              backgroundColor:'white'
+                                          }}
+                                          error={!!errors.email}
+                                          helperText={errors.email?.message}
+                                          InputProps={{
+                                              endAdornment: (
+                                                  <InputAdornment position="end">
+                                                      <img src={phone} alt="Icon" /> {/* Add your image here */}
+                                                  </InputAdornment>
+                                              )
+                                          }}
+                                      />
+                                  )}
+                              />
+                          </Grid>
+                          <Grid item xs={12} md={6}>
+                              <Controller
+                                  name="Email"
+                                  control={control}
+                                  defaultValue=""
+                                  rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                  render={({ field }) => (
+                                      <TextField
+                                          {...field}
+                                          placeholder='Email'
+                                          margin="normal"
+                                          variant="outlined"
+                                          sx={{
+                                              backgroundColor: 'white'
+                                          }}
+                                          error={!!errors.email}
+                                          helperText={errors.email?.message}
+                                          InputProps={{
+                                              endAdornment: (
+                                                  <InputAdornment position="end">
+                                                      <img src={mail} alt="Icon" /> {/* Add your image here */}
+                                                  </InputAdornment>
+                                              )
+                                          }}
+                                      />
+                                  )}
+                              />
+                          </Grid>
+                          <Grid item xs={12} mt={2}>
+                              <div style={{ width: '100%' }}> {/* Wrap inside a div with width 100% */}
+                                  <TextareaAutosize
+                                      minRows={8}
+                                      placeholder='Message'
+                                      style={{ width: '100%', fontFamily: 'Outfit', color:'rgba(60, 66, 83, 0.65)' }} // Explicitly set width to 100%
+                                  />
+                              </div>
+                              <Button variant='contained'
+                                  sx={{
+                                      background: '#EEA676',
+                                      padding: "1rem 1.5rem",
+                                      borderRadius: '50px',
+                                      fontFamily: "Outfit",
+                                      textWrap: 'nowrap',
+                                      mt:2,
+                                      '&:hover': {
+                                          backgroundColor: '#EEA676',
+                                      },
+                                      minWidth: 'max-content'
+                                  }}
+                              >
+                                  Send Message
+                              </Button>
+                          </Grid>
+
+                      </Grid>
+                  </Grid>
+              </Container>
+              <Box
+                  sx={{
+                      position: 'absolute',
+                      bottom: '25%',
+                      left: '1%',
+                      transform: 'translateY(-55%)', // Center vertically
+                      zIndex: 1, // Ensure SVG is above other content
+                  }}
+              >
+                  <img src={Stethoscope} style={{
+                      height: '6rem'
+                  }} alt="" />
+              </Box>
+              <Box
+                  sx={{
+                      position: 'absolute',
+                      right: '3%',
+                      bottom: '38%',
+                      transform: 'translateY(-60%)', // Center vertically
+                      zIndex: 1, // Ensure SVG is above other content
+
+                  }}
+              >
+                  <img src={Medicine} style={{
+                      height: '5rem'
+                  }} alt="" />
+              </Box>
+          </Box>
+          <Container sx={{
+              my:'4rem'
+          }}>
+                  <Box sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 2,
+                  }}>
+                      <div style={{
+                          height: '2px',
+                          width: '7rem',
+                          backgroundColor: '#EEA676',
+                          alignSelf: 'center'
+                      }}></div>
+                      <Typography component='p' variant='p' sx={{
+                          color: '#EEA676',
+                          fontFamily: 'Outfit',
+                          position: 'relative',
+                          fontWeight: 500
+                      }}>
+                          FAQ
+                      </Typography>
+                  </Box>
+                  <Typography
+                      component='h3' variant='h3'
+                      sx={{
+                          fontFamily: 'Outfit',
+                          fontWeight: 600,
+                          mb: 2,
+                          mt: 1,
+                          color: '#042622',
+                          textAlign: 'center',
+                          fontSize: { xs: '1.5rem', md: '2.5rem' },
+                      }}
+                  >
+                      Get Your General Answers
+                  </Typography>
+              <Box sx={{
+                  display: 'flex',
+                  justifyContent:'center'
+              }}>
+                  <Typography component='p' variant='p' sx={{
+                      fontFamily: 'Outfit',
+                      color: '#3C4253',
+                      letterSpacing: '0.36px',
+                      lineHeight: '30px',
+                      mb: 5,
+                      textAlign: 'center',
+                      width: { xs: '95%', md: '75%' }
+                  }}>
+                      Elementum eu et morbi in vulputate. Lectus amet non fringilla dolor eu suspendisse urna diam. Vulputate quam neque scelerisque purus dignissim ut iaculis. Integer cursus non pellentesque.
+                  </Typography>
+                      </Box>
+              <Grid container spacing={3}>
+                  <Grid item xs={12} md={6}>
+                      <Accordion
+                          expanded={expanded === 'panel1'}
+                          onChange={handleChange('panel1')}
+                          sx={{
+                              backgroundColor: expanded === 'panel1' ? 'white' : '#DEEEEC',
+                              border: 'none',
+                              mb: 3
+                          }}>
+                          <AccordionSummary
+                              expandIcon={<ExpandMore />}
+                          >
+                              <Typography
+                                  component='h6' variant='h6'
+                                  sx={{
+                                      fontFamily: 'Outfit',
+                                      fontWeight: 600,
+                                      color: '#042622;',
+                                      fontSize: '1.2rem',
+                                  }}
+                              >
+                                  What medical services do you provide?
+                              </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails >
+                              <Typography component='p' variant='p' sx={{
+                                  fontFamily: 'Outfit',
+                                  lineHeight: '30px'
+
+                              }}>
+                                  We offer a comprehensive range of medical services across various departments,
+                                  including Cardiology, Neurology, Urology, General Surgery, and additional specialties.
+                                  Visit our services page for more information.
+                              </Typography>
+
+                          </AccordionDetails>
+                      </Accordion>
+                      <Accordion
+                          expanded={expanded === 'panel2'}
+                          onChange={handleChange('panel2')}
+                          sx={{
+                              backgroundColor: expanded === 'panel2' ? 'white' : '#DEEEEC',
+                              border: 'none',
+                              mb: 3
+                          }}>
+                          <AccordionSummary
+                              expandIcon={<ExpandMore />}
+                          >
+                              <Typography
+                                  component='h6' variant='h6'
+                                  sx={{
+                                      fontFamily: 'Outfit',
+                                      fontWeight: 600,
+                                      color: '#042622;',
+                                      fontSize: '1.2rem',
+                                  }}
+                              >
+                                  How can I make an appointment?
+                              </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails >
+                              <Typography component='p' variant='p' sx={{
+                                  fontFamily: 'Outfit',
+                                  lineHeight: '30px'
+
+                              }}>
+                                  We offer a comprehensive range of medical services across various departments,
+                                  including Cardiology, Neurology, Urology, General Surgery, and additional specialties.
+                                  Visit our services page for more information.
+                              </Typography>
+
+                          </AccordionDetails>
+                      </Accordion>
+                      <Accordion expanded={expanded === 'panel3'}
+                          onChange={handleChange('panel3')}
+                          sx={{
+                              backgroundColor: expanded === 'panel3' ? 'white' : '#DEEEEC',
+                              border: 'none',
+                              mb: 3
+                          }}>
+                          <AccordionSummary
+                              expandIcon={<ExpandMore />}
+                          >
+                              <Typography
+                                  component='h6' variant='h6'
+                                  sx={{
+                                      fontFamily: 'Outfit',
+                                      fontWeight: 600,
+                                      color: '#042622;',
+                                      fontSize: '1.2rem',
+                                  }}
+                              >
+                                  What are your office hours?
+                              </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails >
+                              <Typography component='p' variant='p' sx={{
+                                  fontFamily: 'Outfit',
+                                  lineHeight: '30px'
+
+                              }}>
+                                  We offer a comprehensive range of medical services across various departments,
+                                  including Cardiology, Neurology, Urology, General Surgery, and additional specialties.
+                                  Visit our services page for more information.
+                              </Typography>
+
+                          </AccordionDetails>
+                      </Accordion>
+                      <Accordion expanded={expanded === 'panel4'}
+                          onChange={handleChange('panel4')}
+                          sx={{
+                              backgroundColor: expanded === 'panel4' ? 'white' : '#DEEEEC',
+                              border: 'none',
+                          }}>
+                          <AccordionSummary
+                              expandIcon={<ExpandMore />}
+                          >
+                              <Typography
+                                  component='h6' variant='h6'
+                                  sx={{
+                                      fontFamily: 'Outfit',
+                                      fontWeight: 600,
+                                      color: '#042622;',
+                                      fontSize: '1.2rem',
+                                  }}
+                              >
+                                  Do you accept insurance?
+                              </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails >
+                              <Typography component='p' variant='p' sx={{
+                                  fontFamily: 'Outfit',
+                                  lineHeight: '30px'
+
+                              }}>
+                                  We offer a comprehensive range of medical services across various departments,
+                                  including Cardiology, Neurology, Urology, General Surgery, and additional specialties.
+                                  Visit our services page for more information.
+                              </Typography>
+
+                          </AccordionDetails>
+                      </Accordion>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                      <Accordion
+                          expanded={expanded === 'panel1'}
+                          onChange={handleChange('panel1')}
+                          sx={{
+                              backgroundColor: expanded === 'panel1' ? 'white' : '#DEEEEC',
+                              border: 'none',
+                              mb: 3
+                          }}>
+                          <AccordionSummary
+                              expandIcon={<ExpandMore />}
+                          >
+                              <Typography
+                                  component='h6' variant='h6'
+                                  sx={{
+                                      fontFamily: 'Outfit',
+                                      fontWeight: 600,
+                                      color: '#042622;',
+                                      fontSize: '1.2rem',
+                                  }}
+                              >
+                                  What medical services do you provide?
+                              </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails >
+                              <Typography component='p' variant='p' sx={{
+                                  fontFamily: 'Outfit',
+                                  lineHeight: '30px'
+
+                              }}>
+                                  We offer a comprehensive range of medical services across various departments,
+                                  including Cardiology, Neurology, Urology, General Surgery, and additional specialties.
+                                  Visit our services page for more information.
+                              </Typography>
+
+                          </AccordionDetails>
+                      </Accordion>
+                      <Accordion
+                          expanded={expanded === 'panel2'}
+                          onChange={handleChange('panel2')}
+                          sx={{
+                              backgroundColor: expanded === 'panel2' ? 'white' : '#DEEEEC',
+                              border: 'none',
+                              mb: 3
+                          }}>
+                          <AccordionSummary
+                              expandIcon={<ExpandMore />}
+                          >
+                              <Typography
+                                  component='h6' variant='h6'
+                                  sx={{
+                                      fontFamily: 'Outfit',
+                                      fontWeight: 600,
+                                      color: '#042622;',
+                                      fontSize: '1.2rem',
+                                  }}
+                              >
+                                  How can I make an appointment?
+                              </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails >
+                              <Typography component='p' variant='p' sx={{
+                                  fontFamily: 'Outfit',
+                                  lineHeight: '30px'
+
+                              }}>
+                                  We offer a comprehensive range of medical services across various departments,
+                                  including Cardiology, Neurology, Urology, General Surgery, and additional specialties.
+                                  Visit our services page for more information.
+                              </Typography>
+
+                          </AccordionDetails>
+                      </Accordion>
+                      <Accordion expanded={expanded === 'panel3'}
+                          onChange={handleChange('panel3')}
+                          sx={{
+                              backgroundColor: expanded === 'panel3' ? 'white' : '#DEEEEC',
+                              border: 'none',
+                              mb: 3
+                          }}>
+                          <AccordionSummary
+                              expandIcon={<ExpandMore />}
+                          >
+                              <Typography
+                                  component='h6' variant='h6'
+                                  sx={{
+                                      fontFamily: 'Outfit',
+                                      fontWeight: 600,
+                                      color: '#042622;',
+                                      fontSize: '1.2rem',
+                                  }}
+                              >
+                                  What are your office hours?
+                              </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails >
+                              <Typography component='p' variant='p' sx={{
+                                  fontFamily: 'Outfit',
+                                  lineHeight: '30px'
+
+                              }}>
+                                  We offer a comprehensive range of medical services across various departments,
+                                  including Cardiology, Neurology, Urology, General Surgery, and additional specialties.
+                                  Visit our services page for more information.
+                              </Typography>
+
+                          </AccordionDetails>
+                      </Accordion>
+                      <Accordion expanded={expanded === 'panel4'}
+                          onChange={handleChange('panel4')}
+                          sx={{
+                              backgroundColor: expanded === 'panel4' ? 'white' : '#DEEEEC',
+                              border: 'none',
+                          }}>
+                          <AccordionSummary
+                              expandIcon={<ExpandMore />}
+                          >
+                              <Typography
+                                  component='h6' variant='h6'
+                                  sx={{
+                                      fontFamily: 'Outfit',
+                                      fontWeight: 600,
+                                      color: '#042622;',
+                                      fontSize: '1.2rem',
+                                  }}
+                              >
+                                  Do you accept insurance?
+                              </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails >
+                              <Typography component='p' variant='p' sx={{
+                                  fontFamily: 'Outfit',
+                                  lineHeight: '30px'
+
+                              }}>
+                                  We offer a comprehensive range of medical services across various departments,
+                                  including Cardiology, Neurology, Urology, General Surgery, and additional specialties.
+                                  Visit our services page for more information.
+                              </Typography>
+
+                          </AccordionDetails>
+                      </Accordion>
+                  </Grid>
+              </Grid>
+          </Container>
+      </>
+  )
+}
+
+export default Contact
