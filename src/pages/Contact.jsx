@@ -10,6 +10,10 @@ import user from '../assets/userIcon.svg';
 import phone from '../assets/phoneIcon.svg';
 import mail from '../assets/mailIcon.svg';
 import { ExpandMore } from '@mui/icons-material';
+import Clock from '../assets/clockIcon.svg'
+import Location from '../assets/locationIcon.png';
+import Gmap from '../assets/gmap.png';
+import Footer from '../components/Footer/Footer';
 
 
 const Contact = () => {
@@ -28,7 +32,7 @@ const Contact = () => {
                   pt: 2,
                   position: 'relative',
                   backgroundColor: 'white',
-                  backgroundImage: "linear-gradient(to bottom, #036C5F 80%, rgba(0, 0, 0, 0) 20%)" // Removed spaces before %
+                  backgroundImage: "linear-gradient(to bottom, #036C5F 55%, rgba(0, 0, 0, 0) 45%)" // Removed spaces before %
               }}>
 
               <NavBar />
@@ -72,7 +76,7 @@ const Contact = () => {
               <Container sx={{
                   display: 'flex',
                   justifyContent: 'center',
-                  mt: 10,
+                  mt: "7rem",
                   position:'relative'
               }} >
                   <Grid container spacing={3} sx={{
@@ -294,7 +298,7 @@ const Contact = () => {
               <Box
                   sx={{
                       position: 'absolute',
-                      bottom: '25%',
+                      bottom: '40%',
                       left: '1%',
                       transform: 'translateY(-55%)', // Center vertically
                       zIndex: 1, // Ensure SVG is above other content
@@ -308,7 +312,7 @@ const Contact = () => {
                   sx={{
                       position: 'absolute',
                       right: '3%',
-                      bottom: '38%',
+                      bottom: '58%',
                       transform: 'translateY(-60%)', // Center vertically
                       zIndex: 1, // Ensure SVG is above other content
 
@@ -662,6 +666,110 @@ const Contact = () => {
                   </Grid>
               </Grid>
           </Container>
+          <Container sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              mt: { xs: '5rem', md: '15rem' },
+              position: 'relative',
+              mb: { xs: '4rem', md: '8rem' },
+              flexDirection: { xs: 'column-reverse', md: 'row' },
+              gap:5,
+          }}>
+              <img src={Gmap} style={{
+                  width: '100%',
+              }} alt="" />
+              <Grid container sx={{
+                  backgroundColor: '#036C5F',
+                  width: { xs: '100%', md:'80%'},
+                  py: { xs: '0.5rem', md: '1rem' },
+                  px: {xs:'0rem', md:'2rem'},
+                  position: { xs: 'static', md: 'absolute' },
+                  top:'-22%'
+              }}>
+                  <Grid item xs={12} md={5}>
+                      <Box sx={{
+                          display: 'flex',
+                          gap: 2,
+                          padding: { xs: '1rem', md: '2rem' },
+                          flexDirection:{xs:'column', md:'row'}
+                      }}>
+                          <Avatar sx={{ backgroundColor: '#FFFFFF', width: 40, height: 40, padding: '1rem' }}>
+                              <img src={Location} alt="Feature" style={{ width: '100%', height: '100%', }} />
+                          </Avatar>
+                          <Box>
+                              <Typography variant='h5' component={'h5'} sx={{
+                                  fontFamily: 'Outfit',
+                                  color: '#FFFFFF',
+                                  fontWeight: 500,
+                                  letterSpacing: '0.44px'
+                              }}>Address</Typography>
+                              <Typography component={'p'} variant='p'
+                                  sx={{
+                                      fontFamily: "Outfit",
+                                      color: "white",
+                                      lineHeight: '30px',
+                                      mt: 1,
+                                      width: '80%',
+                                      letterSpacing: '0.36px',
+                                      fontSize: '1rem'
+                                  }}
+                              >24 Broadcast Drive Charlotte NC 28202, USA</Typography>
+                          </Box>
+
+                      </Box>
+                  </Grid>
+                  <Grid item xs={12} md={7}>
+                      <Box sx={{
+                          display: 'flex',
+                          gap: 2,
+                          padding: { xs: '1rem', md: '2rem' },
+                          flexDirection: { xs: 'column', md: 'row' }
+                      }}>
+                          <Avatar sx={{ backgroundColor: '#FFFFFF', width: 40, height: 40, padding: '1rem' }}>
+                              <img src={Clock} alt="Feature" style={{ width: '100%', height: '100%', }} />
+                          </Avatar>
+                          <Box>
+                              <Typography variant='h5' component={'h5'} sx={{
+                                  fontFamily: 'Outfit',
+                                  color: '#FFFFFF',
+                                  fontWeight: 500,
+                                  letterSpacing: '0.44px'
+                              }}>Hours</Typography>
+                              <Typography component={'p'} variant='p'
+                                  sx={{
+                                      fontFamily: "Outfit",
+                                      color: "white",
+                                      lineHeight: '30px',
+                                      letterSpacing: '0.36px',
+                                      fontSize: '1rem'
+                                  }}
+                              >Mon - Tues ------ 08:00 am - 05:00 pm</Typography>
+                              <Typography component={'p'} variant='p'
+                                  sx={{
+                                      fontFamily: "Outfit",
+                                      color: "white",
+                                      lineHeight: '30px',
+                                      letterSpacing: '0.36px',
+                                      fontSize: '1rem'
+                                  }}
+                              >Wed - Thu ------ 09:00 am - 06:00 pm</Typography>
+                              <Typography component={'p'} variant='p'
+                                  sx={{
+                                      fontFamily: "Outfit",
+                                      color: "white",
+                                      lineHeight: '30px',
+                                      letterSpacing: '0.36px',
+                                      fontSize: '1rem'
+                                  }}
+                              >Fri - Sat ------ 08:00 am - 05:00 pm</Typography>
+                          </Box>
+
+                      </Box>
+                  </Grid>
+              </Grid>
+
+          </Container>
+          <Footer/>
       </>
   )
 }
