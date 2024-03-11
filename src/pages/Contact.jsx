@@ -83,7 +83,8 @@ const Contact = () => {
                       backgroundColor: '#FBF7F3',
                       mx: '2rem',
                       py: '3rem',
-                      px:'2rem'
+                      px: '2rem',
+                      zIndex:1
                   }} >
                       <Grid item xs={12} md={6} >
                           <Typography variant='h4' component='h4' sx={{
@@ -294,6 +295,17 @@ const Contact = () => {
 
                       </Grid>
                   </Grid>
+                  <Box sx={{
+                      backgroundColor: '#EEA676',
+                      minHeight: '92%',
+                      width: { xs: '85%', md: '75%' },
+                      position: 'absolute',
+                      zIndex: 0,
+                      top: { xs: '-4%',md: '-8%' },
+                      left: { xs: '0%', md: '3%' }
+                      
+                  }}>
+                  </Box>
               </Container>
               <Box
                   sx={{
