@@ -1,5 +1,5 @@
-import { Accordion, AccordionDetails, AccordionSummary, Avatar, Box, Button, Container, Grid, InputAdornment, TextField, TextareaAutosize, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import { Accordion, AccordionDetails, AccordionSummary, Avatar, Box, Button, Container, Grid, InputAdornment, TextField, Typography } from '@mui/material'
+import React, {useState } from 'react'
 import NavBar from '../components/NavBar/NavBar'
 import Stethoscope from '../assets/stethoscope.svg';
 import Medicine from '../assets/medicine.svg';
@@ -14,16 +14,42 @@ import Clock from '../assets/clockIcon.svg'
 import Location from '../assets/locationIcon.png';
 import Gmap from '../assets/gmap.png';
 import Footer from '../components/Footer/Footer';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 const Contact = () => {
-    const { control, formState: { errors } } = useForm();
+
+    const { control, reset, handleSubmit, formState: { errors } } = useForm();
 
     const [expanded, setExpanded] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : null);
     };
+
+    const sendMessage = async (data) => {
+        try {
+            setIsLoading(true);
+            let res = await axios.post('https://gnana-prakasam.onrender.com/contact', data);
+            if (res.data.message) {
+                toast.success(res.data.message);
+            };
+            reset();
+            setIsLoading(false)
+        } catch (error) {
+            setIsLoading(false);
+            if (error.response.data.error) {
+                toast.error(error.response.data.error)
+            }
+        }
+    }
+
+    const onSubmit = (data) => {
+        sendMessage(data)
+    };
+
   return (
       <>
           <Box
@@ -79,13 +105,17 @@ const Contact = () => {
                   mt: "7rem",
                   position:'relative'
               }} >
+                  <form onSubmit={handleSubmit(onSubmit)} style={{
+                      zIndex:1,
+                  }}>
+
                   <Grid container spacing={3} sx={{
                       backgroundColor: '#FBF7F3',
                       mx: '2rem',
                       py: '3rem',
                       px: '2rem',
-                      zIndex:1
                   }} >
+                      
                       <Grid item xs={12} md={6} >
                           <Typography variant='h4' component='h4' sx={{
                               fontFamily: 'Outfit',
@@ -154,12 +184,13 @@ const Contact = () => {
                           </Box>
                       </Grid>
                       <Grid item container rowGap={1} columnSpacing={2} xs={12} md={6}>
+                          
                           <Grid item xs={12} md={6}>
                                   <Controller
-                                      name="First Name"
+                                      name="firstName"
                                       control={control}
                                       defaultValue=""
-                                      rules={{ required: 'First Name is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                      rules={{ required: 'First Name is required', pattern: { message: 'Invalid First Name' } }}
                                       render={({ field }) => (
                                           <TextField
                                               {...field}
@@ -170,8 +201,8 @@ const Contact = () => {
                                               sx={{
                                                   backgroundColor: 'white'
                                               }}
-                                              error={!!errors.email}
-                                              helperText={errors.email?.message}
+                                              error={!!errors.firstName}
+                                              helperText={errors.firstName?.message}
                                               InputProps={{
                                                   endAdornment: (
                                                       <InputAdornment position="end">
@@ -185,10 +216,10 @@ const Contact = () => {
                           </Grid>
                           <Grid item xs={12} md={6}>
                               <Controller
-                                  name="Last Name"
+                                  name="lastName"
                                   control={control}
                                   defaultValue=""
-                                  rules={{ required: 'Last Name is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                  rules={{ required: 'Last Name is required', pattern: { message: 'Invalid Last Name' } }}
                                   render={({ field }) => (
                                       <TextField
                                           {...field}
@@ -198,8 +229,8 @@ const Contact = () => {
                                           sx={{
                                               backgroundColor: 'white'
                                           }}
-                                          error={!!errors.email}
-                                          helperText={errors.email?.message}
+                                          error={!!errors.lastName}
+                                          helperText={errors.lastName?.message}
                                           InputProps={{
                                               endAdornment: (
                                                   <InputAdornment position="end">
@@ -213,10 +244,10 @@ const Contact = () => {
                           </Grid>
                           <Grid item xs={12} md={6}>
                               <Controller
-                                  name="Phone"
+                                  name="phone"
                                   control={control}
                                   defaultValue=""
-                                  rules={{ required: 'Phone is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                    rules={{ required: 'Phone is required', pattern: { value: /^\d{10}$/, message: 'Invalid phone number' } }}
                                   render={({ field }) => (
                                       <TextField
                                           {...field}
@@ -226,8 +257,8 @@ const Contact = () => {
                                           sx={{
                                               backgroundColor:'white'
                                           }}
-                                          error={!!errors.email}
-                                          helperText={errors.email?.message}
+                                          error={!!errors.phone}
+                                          helperText={errors.phone?.message}
                                           InputProps={{
                                               endAdornment: (
                                                   <InputAdornment position="end">
@@ -241,7 +272,7 @@ const Contact = () => {
                           </Grid>
                           <Grid item xs={12} md={6}>
                               <Controller
-                                  name="Email"
+                                  name="email"
                                   control={control}
                                   defaultValue=""
                                   rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
@@ -267,34 +298,56 @@ const Contact = () => {
                                   )}
                               />
                           </Grid>
-                          <Grid item xs={12} mt={2}>
-                              <div style={{ width: '100%' }}> {/* Wrap inside a div with width 100% */}
-                                  <TextareaAutosize
-                                      minRows={8}
-                                      placeholder='Message'
-                                      style={{ width: '100%', fontFamily: 'Outfit', color:'rgba(60, 66, 83, 0.65)' }} // Explicitly set width to 100%
+                              <Grid item xs={12}>
+                                  <Controller
+                                      name="message"
+                                      control={control}
+                                      defaultValue=""
+                                      rules={{ required: 'Message is required' }}
+                                      render={({ field }) => (
+                                          <TextField
+                                              {...field}
+                                              placeholder="Message"
+                                              margin="normal"
+                                              variant="outlined"
+                                              fullWidth
+                                              multiline
+                                              rows={4}
+                                              sx={{
+                                                  backgroundColor: 'white',
+                                                 
+                                              }}
+                                              error={!!errors.message}
+                                              helperText={errors.message?.message}
+                                          />
+                                      )}
                                   />
-                              </div>
-                              <Button variant='contained'
-                                  sx={{
-                                      background: '#EEA676',
-                                      padding: "1rem 1.5rem",
-                                      borderRadius: '50px',
-                                      fontFamily: "Outfit",
-                                      textWrap: 'nowrap',
-                                      mt:2,
-                                      '&:hover': {
-                                          backgroundColor: '#EEA676',
-                                      },
-                                      minWidth: 'max-content'
-                                  }}
-                              >
-                                  Send Message
-                              </Button>
+                              </Grid>
+                              {/* Submit button */}
+                              <Grid item xs={12}>
+                                  <Button variant='contained'
+                                      disabled={isLoading}
+                                      sx={{
+                                          background: '#EEA676',
+                                          padding: "1rem 1.5rem",
+                                          borderRadius: '50px',
+                                          fontFamily: "Outfit",
+                                          textWrap: 'nowrap',
+                                          mt: 2,
+                                          '&:hover': {
+                                              backgroundColor: '#EEA676',
+                                          },
+                                          minWidth: 'max-content'
+                                      }}
+                                      type='submit'
+                                  >
+                                      Send Message
+                                  </Button>
+                              </Grid>
                           </Grid>
-
-                      </Grid>
                   </Grid>
+              </form>
+
                   <Box sx={{
                       backgroundColor: '#EEA676',
                       minHeight: '92%',
@@ -781,7 +834,8 @@ const Contact = () => {
               </Grid>
 
           </Container>
-          <Footer/>
+          <Footer />
+          <Toaster/>
       </>
   )
 }
