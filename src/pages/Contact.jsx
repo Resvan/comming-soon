@@ -15,6 +15,7 @@ import Location from '../assets/locationIcon.png';
 import Gmap from '../assets/gmap.png';
 import Footer from '../components/Footer/Footer';
 import toast, { Toaster } from 'react-hot-toast';
+import axios from '../axios/axios';
 
 
 
@@ -32,7 +33,7 @@ const Contact = () => {
     const sendMessage = async (data) => {
         try {
             setIsLoading(true);
-            let res = await axios.post('https://gnana-prakasam.onrender.com/contact', data);
+            let res = await axios.post('/contact', data);
             if (res.data.message) {
                 toast.success(res.data.message);
             };
@@ -40,6 +41,7 @@ const Contact = () => {
             setIsLoading(false)
         } catch (error) {
             setIsLoading(false);
+            console.log(error);
             if (error.response.data.error) {
                 toast.error(error.response.data.error)
             }

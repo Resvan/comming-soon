@@ -5,7 +5,7 @@ import socialIcons from '../assets/Social-Icons.png';
 import bgImage from '../assets/Img.png';
 import PulseBeams from '../components/PulseBeam';
 import { Controller, useForm } from 'react-hook-form';
-import axios from 'axios';
+import axios from '../axios/axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 const CommingSoon = () => {
@@ -18,7 +18,7 @@ const CommingSoon = () => {
     const subscribeEmail = async (data) => {
         try {
             setIsLoading(true);
-            let res = await axios.post('https://gnana-prakasam.onrender.com/subscribe', data);
+            let res = await axios.post('/subscribe', data);
             if (res.data.message) {
                 toast.success(res.data.message);
             };

@@ -1,5 +1,5 @@
 import { Box, Button, Container, Grid, InputAdornment, TextField, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar/NavBar';
 import Stethoscope from '../assets/stethoscope.svg';
 import Medicine from '../assets/medicine.svg';
@@ -13,13 +13,78 @@ import user from '../assets/userSvg.svg';
 import mail from '../assets/mailSvg.svg';
 import calendar from '../assets/calendarSvg.svg';
 import clock from '../assets/clockSvg.svg';
+import axios from '../axios/axios';
+import { useParams } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const DoctorDetails = () => {
 
-    const { control, formState: { errors } } = useForm();
+    const { id } = useParams();
+
+    const { control, reset, handleSubmit, formState: { errors } } = useForm();
+    const [isLoading, setIsLoading] = useState(false);
+    const [bookedSlots, setBookedSlots] = useState([]);
+    const [doctor, setDoctor] = useState(`doctor-${id}`);
+    
+
+    const timeSlots = [
+        "09:00 AM", "09:30 AM",
+        "10:00 AM", "10:30 AM",
+        "11:00 AM", "11:30 AM",
+        "12:00 PM", "12:30 PM",
+        "01:00 PM", "01:30 PM",
+        "02:00 PM", "02:30 PM",
+        "03:00 PM", "03:30 PM",
+        "04:00 PM", "04:30 PM",
+        "05:00 PM", "05:30 PM",
+        "06:00 PM", "06:30 PM",
+        "07:00 PM", "07:30 PM",
+        "08:00 PM", "08:30 PM",
+    ];
+
+    const bookAppointment = async (data) => {
+        try {
+            setIsLoading(true);
+            let res = await axios.post('/appointment/book-appointment', data);
+            
+            if (res.data.message) {
+                toast.success(res.data.message);
+            };
+            reset();
+            setIsLoading(false)
+        } catch (error) {
+            setIsLoading(false);
+            console.log(error);
+            if (error.response.data.error) {
+                toast.error(error.response.data.error)
+            }
+        }
+    }
+
+    const onSubmit = (data) => {
+        bookAppointment(data)
+    };
+
+    const getBookedSlots = async (data) => {
+        try {
+            let res = await axios.get(`/appointment/booked-appointments/${doctor}`, data);
+            setBookedSlots(res.data.appointment);
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getBookedSlots()
+    }, [doctor]);
+
+
+
   return (
       <>
+          <Toaster/>
           <Box
               sx={{
                   color: 'white',
@@ -324,70 +389,102 @@ const DoctorDetails = () => {
                           <Box sx={{
                               px:5
                           }}>
+                              <form onSubmit={handleSubmit(onSubmit)} >
                               <Controller
-                                  name="email"
+                                  name="department"
                                   control={control}
                                   defaultValue=""
-                                  rules={{ required: 'Email is required' }}
+                                  rules={{ required: 'Department is required' }}
                                   render={({ field }) => (
-                                      <Select
-                                          {...field}
-                                          displayEmpty
-                                          defaultValue=""
-                                          margin="normal"
-                                          fullWidth
-                                          variant="outlined"
-                                          sx={{
-                                              backgroundColor: 'rgba(222, 238, 236, 0.35)',
-                                              mt: 5,
-                                              mb: 2,
-                                              color:'rgba(60, 66, 83, 0.65)'
-                                          }}
-                                          error={!!errors.email}
-                                      >
-                                          <MenuItem value="" disabled>
-                                              Choose Department
-                                          </MenuItem>
-                                          <MenuItem value="email1@example.com">email1@example.com</MenuItem>
-                                          <MenuItem value="email2@example.com">email2@example.com</MenuItem>
-                                          {/* Add other email options as needed */}
-                                      </Select>
+                                      <>
+                                          <Select
+                                              {...field}
+                                              displayEmpty
+                                              defaultValue=""
+                                              margin="normal"
+                                              fullWidth
+                                              variant="outlined"
+                                              sx={{
+                                                  backgroundColor: 'rgba(222, 238, 236, 0.35)',
+                                                  mt: 5,
+                                                  color: 'rgba(60, 66, 83, 0.65)'
+                                              }}
+                                              error={!!errors.department}
+                                          >
+                                              <MenuItem value="" disabled>
+                                                  Choose Department
+                                              </MenuItem>
+                                              <MenuItem value="cardiology">Cardiology</MenuItem>
+                                              <MenuItem value="neurology">Neurology</MenuItem>
+                                              <MenuItem value="urology">Urology</MenuItem>
+                                              <MenuItem value="generalSurgery">General Surgery</MenuItem>
+                                              <MenuItem value="orthopedics">Orthopedics</MenuItem>
+                                              <MenuItem value="gynecology">Gynecology</MenuItem>
+                                              <MenuItem value="pediatrics">Pediatrics</MenuItem>
+                                              <MenuItem value="internalMedicine">Internal Medicine</MenuItem>
+                                              <MenuItem value="oncology">Oncology</MenuItem>
+                                              <MenuItem value="ent">ENT</MenuItem>
+                                              <MenuItem value="dermatology">Dermatology</MenuItem>
+                                              <MenuItem value="additional">Additional</MenuItem>
+                                              {/* Add other department options as needed */}
+                                          </Select>
+                                          {errors.department && (
+                                              <Typography variant="body2" color="error">
+                                                  {errors.department.message}
+                                              </Typography>
+                                          )}
+                                      </>
                                   )}
                               />
+
                               <Controller
-                                  name="email"
+                                  name="doctor"
                                   control={control}
                                   defaultValue=""
-                                  rules={{ required: 'Email is required' }}
+                                  rules={{ required: 'Doctor is required' }}
                                   render={({ field }) => (
-                                      <Select
-                                          {...field}
-                                          displayEmpty
-                                          defaultValue=""
-                                          margin="normal"
-                                          fullWidth
-                                          variant="outlined"
-                                          sx={{
-                                              backgroundColor: 'rgba(222, 238, 236, 0.35)',
-                                              my: 2,
-                                              color:'rgba(60, 66, 83, 0.65)'
-                                          }}
-                                          error={!!errors.email}
-                                      >
-                                          <MenuItem value="" disabled>
-                                              Choose Doctor
-                                          </MenuItem>
-                                          <MenuItem value="email1@example.com">email1@example.com</MenuItem>
-                                          <MenuItem value="email2@example.com">email2@example.com</MenuItem>
-                                          {/* Add other email options as needed */}
-                                      </Select>
-                                  )}
+                                      <>
+                                          <Select
+                                              {...field}
+                                              displayEmpty
+                                              defaultValue=""
+                                              margin="normal"
+                                              fullWidth
+                                              variant="outlined"
+                                              onChange={(e) => {
+                                                  field.onChange(e.target.value); 
+                                                  setDoctor(e.target.value)
+                                              }}
+                                              sx={{
+                                                  backgroundColor: 'rgba(222, 238, 236, 0.35)',
+                                                  mt: 3,
+                                                  color: 'rgba(60, 66, 83, 0.65)'
+                                              }}
+                                              error={!!errors.doctor}
+                                          >
+                                              <MenuItem value="" disabled>
+                                                  Choose Doctor
+                                              </MenuItem>
+                                              <MenuItem value="doctor-1">Doctor 1</MenuItem>
+                                              <MenuItem value="doctor-2">Doctor 2</MenuItem>
+                                              <MenuItem value="doctor-3">Doctor 3</MenuItem>
+                                              <MenuItem value="doctor-4">Docotor 4</MenuItem>
+
+                                          </Select>
+                                          {errors.doctor && (
+                                              <Typography variant="body2" color="error">
+                                                  {errors.doctor.message}
+                                              </Typography>
+                                          )}
+                                      </>
+                                      )}
+                                     
                               />
                               <Controller
                                   name="name"
                                   control={control}
                                   defaultValue=""
-                                  rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                  rules={{ required: 'Name is required',  }}
                                   render={({ field }) => (
                                       <TextField
                                           {...field}
@@ -397,11 +494,11 @@ const DoctorDetails = () => {
                                           variant="outlined"
                                           sx={{
                                               backgroundColor: 'rgba(222, 238, 236, 0.35)',
-                                              mt: 2,
+                                              mt: 3,
                                               color: 'rgba(60, 66, 83, 0.65)'
                                           }}
-                                          error={!!errors.email}
-                                          helperText={errors.email?.message}
+                                          error={!!errors.name}
+                                          helperText={errors.name?.message}
                                           InputProps={{
                                               endAdornment: (
                                                   <InputAdornment position="end">
@@ -442,79 +539,82 @@ const DoctorDetails = () => {
                                   )}
                               />
                               <Controller
-                                  name="Date"
+                                  name="date"
                                   control={control}
                                   defaultValue=""
-                                  rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
+                                  rules={{ required: 'Date is required',  }}
                                   render={({ field }) => (
                                       <TextField
                                           {...field}
                                           placeholder='Date'
                                           margin="normal"
                                           fullWidth
+                                          type='date'
                                           variant="outlined"
                                           sx={{
                                               backgroundColor: 'rgba(222, 238, 236, 0.35)',
                                               mt: 3,
-                                              color: 'rgba(60, 66, 83, 0.65)'
+                                              color: 'red'
                                           }}
-                                          error={!!errors.email}
-                                          helperText={errors.email?.message}
-                                          InputProps={{
-                                              endAdornment: (
-                                                  <InputAdornment position="end">
-                                                      <img src={calendar} alt="Icon" /> {/* Add your image here */}
-                                                  </InputAdornment>
-                                              )
-                                          }}
+                                          error={!!errors.date}
+                                          helperText={errors.date?.message}
                                       />
                                   )}
                               />
-                              <Controller
-                                  name="Time"
-                                  control={control}
-                                  defaultValue=""
-                                  rules={{ required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } }}
-                                  render={({ field }) => (
-                                      <TextField
-                                          {...field}
-                                          placeholder='Time'
-                                          margin="normal"
-                                          fullWidth
-                                          variant="outlined"
-                                          sx={{
-                                              backgroundColor: 'rgba(222, 238, 236, 0.35)',
-                                              mt: 3,
-                                              color: 'rgba(60, 66, 83, 0.65)'
-                                          }}
-                                          error={!!errors.email}
-                                          helperText={errors.email?.message}
-                                          InputProps={{
-                                              endAdornment: (
-                                                  <InputAdornment position="end">
-                                                      <img src={clock} alt="Icon" /> {/* Add your image here */}
-                                                  </InputAdornment>
-                                              )
-                                          }}
-                                      />
-                                  )}
-                              />
-                              <Button variant='contained'
-                                  fullWidth
-                                  sx={{
-                                      background: '#EEA676',
-                                      borderRadius: '50px',
-                                      fontFamily: "Outfit",
-                                      textWrap: 'nowrap',
-                                      py: 2,
-                                      mt: 3,
-                                      '&:hover': {
-                                          backgroundColor: '#EEA676',
-                                      },
+                                  <Controller
+                                      name="time"
+                                      control={control}
+                                      defaultValue=""
+                                      rules={{ required: 'Time is required' }}
+                                      render={({ field }) => (
+                                          <>
+                                              <Select
+                                                  {...field}
+                                                  fullWidth
+                                                  displayEmpty
+                                                  variant="outlined"
+                                                  sx={{
+                                                      backgroundColor: 'rgba(222, 238, 236, 0.35)',
+                                                      mt: 3,
+                                                      color: 'rgba(60, 66, 83, 0.65)'
+                                                  }}
+                                                  error={!!errors.time}
+                                              >
+                                                  <MenuItem value="" disabled>
+                                                      Select a slot
+                                                  </MenuItem>
+                                                  {timeSlots.filter(slot => !bookedSlots.some(bookedSlot => bookedSlot.time === slot)).map(slot => (
+                                                      <MenuItem key={slot} value={slot}>{slot}</MenuItem>
+                                                  ))}
 
-                                  }}>
-                                  Book Appoinment
-                              </Button>    
+
+                                              </Select>
+                                              {errors.time && (
+                                                  <Typography variant="body2" color="error">
+                                                      {errors.time.message}
+                                                  </Typography>
+                                              )}
+                                          </>
+                                      )}
+                                  />
+                                  <Button
+                                      variant='contained'
+                                      fullWidth
+                                      type='submit'
+                                      sx={{
+                                          background: '#EEA676',
+                                          borderRadius: '50px',
+                                          fontFamily: "Outfit",
+                                          textWrap: 'nowrap',
+                                          py: 2,
+                                          mt: 4,
+                                          '&:hover': {
+                                              backgroundColor: '#EEA676',
+                                          },
+                                      }}>
+                                      Book Appointment
+                                  </Button>
+                              </form>    
                           </Box>
                       </Box>
                 </Grid>
