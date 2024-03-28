@@ -25,7 +25,6 @@ const DoctorDetails = () => {
     const { control, reset, handleSubmit, formState: { errors } } = useForm();
     const [isLoading, setIsLoading] = useState(false);
     const [bookedSlots, setBookedSlots] = useState([]);
-    const [doctor, setDoctor] = useState(`doctor-${id}`);
     
 
     const timeSlots = [
@@ -66,9 +65,9 @@ const DoctorDetails = () => {
         bookAppointment(data)
     };
 
-    const getBookedSlots = async (data) => {
+    const getBookedSlots = async (date) => {
         try {
-            let res = await axios.get(`/appointment/booked-appointments/${doctor}`, data);
+            let res = await axios.get(`/appointment/booked-appointments/doctor-${id}/${date}`);
             setBookedSlots(res.data.appointment);
             
         } catch (error) {
@@ -76,9 +75,9 @@ const DoctorDetails = () => {
         }
     }
 
-    useEffect(() => {
-        getBookedSlots()
-    }, [doctor]);
+    const handleDateChange = (date) => {
+        getBookedSlots(date);
+    }
 
 
 
@@ -451,10 +450,6 @@ const DoctorDetails = () => {
                                               margin="normal"
                                               fullWidth
                                               variant="outlined"
-                                              onChange={(e) => {
-                                                  field.onChange(e.target.value); 
-                                                  setDoctor(e.target.value)
-                                              }}
                                               sx={{
                                                   backgroundColor: 'rgba(222, 238, 236, 0.35)',
                                                   mt: 3,
@@ -551,6 +546,10 @@ const DoctorDetails = () => {
                                           fullWidth
                                           type='date'
                                           variant="outlined"
+                                          onChange={(e) => {
+                                              field.onChange(e.target.value);
+                                             handleDateChange(e.target.value)
+                                          }}
                                           sx={{
                                               backgroundColor: 'rgba(222, 238, 236, 0.35)',
                                               mt: 3,

@@ -7,6 +7,8 @@ import Facilities from "./pages/Facilities"
 import Doctors from "./pages/Doctors"
 import DoctorDetails from "./pages/DoctorDetails"
 import Contact from "./pages/Contact"
+import E_Home from "./pages/E-commerce/E_Home"
+import AllProducts from "./pages/E-commerce/AllProducts"
 
 
 
@@ -22,6 +24,8 @@ function App() {
       <Route path="/doctors" element={<Doctors />} />
       <Route path="/doctor/:id" element={<DoctorDetails />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/ecommerce" element={<E_Home />} />
+      <Route path="/products" element={<AllProducts />} />
     </Routes>
 
   )
